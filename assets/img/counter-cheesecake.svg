@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Placeholder: Cheesecake">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0" stop-color="#4A3D2C"/>
+      <stop offset="1" stop-color="#D8C39C"/>
+    </linearGradient>
+    <pattern id="p" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <rect width="28" height="28" fill="none"/>
+      <line x1="0" y1="0" x2="0" y2="28" stroke="#FAF7F2" stroke-opacity="0.06" stroke-width="10"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="url(#g)"/>
+  <rect width="800" height="600" fill="url(#p)"/>
+  <rect x="30" y="30" width="740" height="540" rx="10"
+        fill="none" stroke="#FAF7F2" stroke-opacity="0.45" stroke-width="2"
+        stroke-dasharray="15 15"/>
+  <g transform="translate(400 300)" text-anchor="middle" fill="#FAF7F2"
+     font-family="Helvetica,Arial,sans-serif">
+    <text y="-29" font-size="18" letter-spacing="4.8" opacity="0.65">PLACEHOLDER</text>
+    <text font-size="31" font-weight="600" opacity="0.92"><tspan x="0" dy="0">Cheesecake</tspan></text>
+  </g>
+</svg>

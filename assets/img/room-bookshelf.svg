@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="Placeholder: Books &amp; board games">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0" stop-color="#3D3128"/>
+      <stop offset="1" stop-color="#A08E76"/>
+    </linearGradient>
+    <pattern id="p" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <rect width="28" height="28" fill="none"/>
+      <line x1="0" y1="0" x2="0" y2="28" stroke="#FAF7F2" stroke-opacity="0.06" stroke-width="10"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="800" fill="url(#g)"/>
+  <rect width="800" height="800" fill="url(#p)"/>
+  <rect x="40" y="40" width="720" height="720" rx="13"
+        fill="none" stroke="#FAF7F2" stroke-opacity="0.45" stroke-width="2"
+        stroke-dasharray="20 20"/>
+  <g transform="translate(400 400)" text-anchor="middle" fill="#FAF7F2"
+     font-family="Helvetica,Arial,sans-serif">
+    <text y="-40" font-size="24" letter-spacing="6.4" opacity="0.65">PLACEHOLDER</text>
+    <text font-size="42" font-weight="600" opacity="0.92"><tspan x="0" dy="0">Books &amp; board games</tspan></text>
+  </g>
+</svg>

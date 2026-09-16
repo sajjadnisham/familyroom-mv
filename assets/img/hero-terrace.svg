@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Placeholder: Beach terrace at golden hour">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0" stop-color="#3A2A22"/>
+      <stop offset="1" stop-color="#8A5B3C"/>
+    </linearGradient>
+    <pattern id="p" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <rect width="28" height="28" fill="none"/>
+      <line x1="0" y1="0" x2="0" y2="28" stroke="#FAF7F2" stroke-opacity="0.06" stroke-width="10"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#g)"/>
+  <rect width="1600" height="900" fill="url(#p)"/>
+  <rect x="45" y="45" width="1510" height="810" rx="15"
+        fill="none" stroke="#FAF7F2" stroke-opacity="0.45" stroke-width="2"
+        stroke-dasharray="22 22"/>
+</svg>

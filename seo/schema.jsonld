@@ -1,0 +1,68 @@
+{
+  "//": "CafeOrCoffeeShop schema for Family Room Coffee. NOT yet embedded in the pages: every value marked CONFIRM must be verified with the cafe first, and the demo pages carry noindex. Once the details are confirmed, drop the correct values in, delete the CONFIRM notes, embed this in a <script type=\"application/ld+json\"> on every page, and remove the noindex meta tag.",
+  "@context": "https://schema.org",
+  "@type": "CafeOrCoffeeShop",
+  "name": "Family Room Coffee",
+  "alternateName": ["Family Room Cafe", "Family Room by Coffee Lab", "Family Room Hulhumale"],
+  "description": "Beachfront specialty-coffee cafe in Hulhumale, Maldives, serving all-day breakfast, sandwiches, burgers and cakes. Part of Coffee Lab Maldives.",
+  "url": "https://familyroom.mv/",
+  "telephone": "+9609400040",
+  "email": "familyroom@coffeelab.mv",
+  "servesCuisine": ["Coffee", "Cafe", "Breakfast", "Deli"],
+  "priceRange": "CONFIRM",
+  "currenciesAccepted": "MVR",
+  "paymentAccepted": "CONFIRM — Visa and Mastercard per Tripadvisor; ask about local transfer apps",
+  "image": ["CONFIRM — cafe-owned photography only"],
+  "logo": "CONFIRM — request the logo file",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "CONFIRM — Lot 20018, Beach Road (Tripadvisor) vs 10033 Nirolhu Magu (Google)",
+    "addressLocality": "Hulhumale",
+    "addressRegion": "Kaafu Atoll",
+    "addressCountry": "MV"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "CONFIRM — take the pin from the cafe",
+    "longitude": "CONFIRM — take the pin from the cafe"
+  },
+  "hasMenu": "https://familyroom.mv/menu.html",
+  "openingHoursSpecification": [
+    {
+      "//": "CONFIRM — from Tripadvisor only. Ramadan and public holidays are unpublished.",
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+      "opens": "09:00",
+      "closes": "01:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Friday",
+      "opens": "08:00",
+      "closes": "11:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Friday",
+      "opens": "13:30",
+      "closes": "01:30"
+    }
+  ],
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": "CONFIRM" },
+    { "@type": "LocationFeatureSpecification", "name": "Outdoor seating", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Air conditioning", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Parking", "value": "CONFIRM" }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/familyroomcoffee.mv/",
+    "https://www.facebook.com/familyroom.mv",
+    "https://www.tripadvisor.com/Restaurant_Review-g1938013-d7391060-Reviews-Family_Room_Coffee-Hulhumale.html",
+    "https://on.foodies.mv/restaurant/93"
+  ],
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Coffee Lab Maldives",
+    "//": "CONFIRM the wording and permission to use the Coffee Lab name."
+  }
+}
