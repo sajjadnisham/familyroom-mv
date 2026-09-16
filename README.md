@@ -44,10 +44,11 @@ index.html  menu.html  our-coffee.html  visit.html  pitch.html
 assets/css/site.css     one stylesheet, design tokens on :root
 assets/js/hero.js       hero frame scrubbing and steam
 assets/js/site.js       open-now logic, nav toggle, menu tab tracking
-assets/hero/{lg,sm}/    56-frame coffee sequence, two resolutions
-tools/make-hero-frames.py  renders the sequence from the source photograph
-assets/photos/*.jpg     31 renditions of the 15 client-supplied photographs
+assets/drinks/*.webp    5 drink stills for the hero orbit
+tools/make-drinks.py    crops, grades and regenerates them
+assets/photos/*.jpg     30 renditions of the 15 client-supplied photographs
 tools/make-photos.py    crops and regenerates them from the originals
+tools/make-hero-frames.py  superseded brew-sequence hero, kept to regenerate
 assets/img/*.svg        20 vector illustrations, kept as a rights fallback
 tools/make-art.py       regenerates the illustration set
 IMAGE-CREDITS.md        per-image provenance and clearance status
@@ -72,37 +73,43 @@ break. Edit the `HOURS` table in one place to change all of it.
 **Mobile** gets a hamburger nav and a sticky Menu · Directions · Call bar. Hover zoom and
 scroll-smoothing back off under `prefers-reduced-motion`.
 
-**The hero's vertical fit is height-driven, not just width-driven.** The sticky stage sits below
-the site header (`top: var(--head)`) rather than at `top: 0`, because at rest the stage already
-begins below the header and padding for it would be counted twice. Below 1040px of viewport height
-the four-step read-out collapses to just the active step; below 770px on a phone the sub-headline
-goes too. Verified to fit at ten viewports, both at rest and while stuck.
+**The hero's vertical fit is measured, not guessed.** The sticky stage sits below the site header
+(`top: var(--head)`), and `hero.js` sets its height from the *measured* header-plus-notice height
+— the only value that fits both states, since before the stage sticks it already begins below
+both. The hero section also has its block padding zeroed, because the generic `section` rule would
+otherwise push the track 84px down and make the stage overhang the fold. The orbit's horizontal
+radius is clamped against the widest satellite, so the page never scrolls sideways. Verified at
+eleven viewports, at rest and while stuck.
 
-**The hero is a photographic coffee, brewed by scrolling.** Scroll position drives a 56-frame
-image sequence on a canvas: the finished cup, out-of-focus beans drifting in, a pour, the crema
-turning, then the latte art resolving as the cup settles. Two things make it photographic rather
-than illustrated:
+**The hero is a scroll-driven orbit of the drinks the café pours.** Five drinks travel one
+elliptical path; scroll position sets the orbit's rotation, so the visitor turns it rather than
+watching it spin. Whichever drink reaches the front is drawn into the middle, scaled up, sharpened
+and named.
 
-- Every frame is derived from a real photograph of a flat white
-  (`tools/make-hero-frames.py`). The crema, ceramic, bokeh and lighting are the photograph's own.
-- The swirl is a genuine rotational motion blur with a radius-dependent twist, computed on the
-  liquid disc *after circularising the ellipse*, so it follows the surface in perspective instead
-  of sliding across it. At full strength the art is destroyed; as strength returns to zero the
-  real art re-forms. Nothing is drawn on top to fake it.
+The depth is real rather than implied. Each node's position on the ellipse gives a signed depth,
+and that single number drives scale, opacity, blur, tilt and stacking order together — front
+drinks are larger, sharper and brighter; back drinks are smaller, softer and dimmer. The featured
+bell is deliberately wide enough that hand-overs overlap: the outgoing drink is still being
+released as the next is drawn in, so it reads as an orbital pass rather than a slide change.
 
-`assets/js/hero.js` holds the scrubbing. Scroll sets a target; a frame-rate-independent lerp walks
-the rendered value toward it, so the brew eases in both directions rather than snapping. Frames
-preload first-frame-first at a concurrency of six, and the canvas clamps to the nearest loaded
-frame, so the hero is never blank. Steam is drawn on a second canvas and keeps drifting while the
-page is still — the only motion not tied to scroll. The rAF loop runs only while the hero
-intersects the viewport.
+`assets/js/hero.js` writes only transforms, opacity and filter per frame — never layout. Scroll
+sets a target and a frame-rate-independent lerp walks the rendered value toward it, so a 120 Hz
+and a 60 Hz screen travel at the same speed. Steam is drawn on its own canvas over the featured
+cup and keeps drifting while the page is still; it is the one movement not driven by scroll, and
+it is weighted per drink, so the bag of beans does not steam. The rAF loop runs only while the
+hero intersects the viewport.
 
-Desktop loads `assets/hero/lg/` (1000px, ~1.5 MB over 56 frames); anything narrow or low-DPR gets
-`assets/hero/sm/` (560px, ~0.7 MB). That weight is the cost of a photographic sequence — reduce
-`--frames` in the generator to trade smoothness for bytes.
+**Only drinks that were actually photographed appear.** There is no espresso, americano, mocha or
+iced coffee in the orbit, because no photograph of those was supplied — and darkening the
+cappuccino to stand in for them would put fabricated menu items in front of the café. Two real
+photographs would add each one; see `tools/make-drinks.py`.
 
-Under `prefers-reduced-motion` the track collapses to normal flow, one finished frame is drawn,
-the steam is painted once and faint, and the rAF loop never starts.
+The stills are 5 × ~22 KB. `tools/make-drinks.py` bakes a per-drink vignette so every photograph
+dissolves into the hero's darkness at the same rate, whatever its own background — the bean bags
+were shot against a pale wall and need the most.
+
+Under `prefers-reduced-motion` the track collapses to normal flow, the nodes lay out as a static
+line-up with the first drink featured, the steam is hidden, and the rAF loop never starts.
 
 **Photography is client-supplied, and its rights are not uniform.** Every photo came from the
 client as a phone screenshot; `tools/make-photos.py` holds the crop box and focus point for each

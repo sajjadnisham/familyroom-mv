@@ -53,6 +53,26 @@ logo from frame — so do not present them as the café's own. Stockists are oft
 supplier images, but **confirm that with Tea Drop or the café**, and confirm the café still serves
 these blends.
 
+## The hero orbit
+
+`assets/drinks/` holds five stills for the hero, each cropped from one of the photographs above:
+
+| Still | From | Rights group |
+| --- | --- | --- |
+| `cappuccino` | `latte-donut` | 🟡 guest photo |
+| `flat-white` | `latte-blue` | 🟡 guest photo |
+| `jasmine` | `tea-jasmine` | 🔴 supplier image |
+| `fruits-eden` | `tea-fruits` | 🔴 supplier image |
+| `single-origin` | `beans` | 🟢 café's own |
+
+So **four of the five drinks in the hero need clearance before launch** — the two guest photos and
+the two supplier images. That is the strongest argument for the shoot below: the hero is the first
+thing anyone sees.
+
+The orbit has no espresso, americano, mocha or iced coffee because no photograph of those was
+supplied. Each needs one square photograph of the drink, ideally on the café's own cups under the
+same light as the rest; drop it into `tools/make-drinks.py` with a crop box and it joins the orbit.
+
 ## Replacing them
 
 A single shoot solves all three groups at once. The audit asks for: hero 16:9 (4:5 crop for

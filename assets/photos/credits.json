@@ -32,17 +32,17 @@
       "beans-thumb.jpg"
     ]
   },
-  "beans-shelf": {
-    "credit": "Family Room Coffee retail packaging",
-    "files": [
-      "beans-shelf-hero.jpg"
-    ]
-  },
   "beef-burger": {
     "credit": "Family Room Coffee / Seaside Grill product shot",
     "files": [
       "beef-burger-card.jpg",
       "beef-burger-thumb.jpg"
+    ]
+  },
+  "beef-burger-ad": {
+    "credit": "Seaside Grill / Family Room promotional artwork",
+    "files": [
+      "beef-burger-ad-tile.jpg"
     ]
   },
   "bolognese": {
@@ -91,7 +91,6 @@
     "credit": "Guest photo, Google Maps (credited 'Raya Ss')",
     "files": [
       "latte-donut-card.jpg",
-      "latte-donut-tile.jpg",
       "latte-donut-thumb.jpg"
     ]
   },

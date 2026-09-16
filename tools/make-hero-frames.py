@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
-"""Renders the hero's scroll-driven coffee sequence as an image sequence.
+"""Renders a scroll-driven coffee brewing sequence as an image sequence.
+
+SUPERSEDED. The hero is now a scroll-driven orbit of the drinks the cafe pours
+(see tools/make-drinks.py and assets/js/hero.js), so nothing references these
+frames and assets/hero/ has been removed to save 2.6 MB. This generator is kept
+because the brew sequence is a finished piece of work: run it to regenerate
+assets/hero/{lg,sm}/ if you want the brewing hero back.
+
 
 Every frame is derived from a real photograph of a flat white (client-supplied),
 so the result is photographic rather than an illustration of a cup. The scroll

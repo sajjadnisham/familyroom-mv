@@ -21,7 +21,7 @@ SOURCES = {
     "avocado-toast":   ("d4519ecd-image.jpg", (0.00, 0.300, 1.00, 0.768), (0.45, 0.48), "@familyroomcoffee.mv Instagram post, 15 Dec 2020"),
     "chicken-burger":  ("3888b3ea-image.jpg", (0.00, 0.345, 1.00, 0.660), (0.42, 0.55), "Seaside Grill / Family Room promotional artwork"),
     "bolognese":       ("04a25036-image.jpg", (0.17, 0.318, 0.83, 0.610), (0.50, 0.50), "Seaside Grill / Family Room promotional artwork"),
-    "beef-burger-ad":  ("3471669f-image.jpg", (0.15, 0.205, 0.85, 0.795), (0.50, 0.50), "Seaside Grill / Family Room promotional artwork"),
+    "beef-burger-ad":  ("3471669f-image.jpg", (0.170, 0.345, 0.830, 0.615), (0.50, 0.50), "Seaside Grill / Family Room promotional artwork"),
     "thai-curry":      ("96facb16-image.jpg", (0.15, 0.330, 0.85, 0.600), (0.50, 0.50), "Seaside Grill / Family Room promotional artwork"),
     "chicken-wings":   ("0ec921d8-image.jpg", (0.15, 0.318, 0.85, 0.592), (0.50, 0.50), "Seaside Grill / Family Room promotional artwork"),
     "latte-blue":      ("1302bbc0-image.jpg", (0.145, 0.170, 0.855, 0.845), (0.50, 0.62), "Guest photo by @nishaaarl, reshared by the cafe 14 Sep 2020"),
@@ -37,16 +37,13 @@ SOURCES = {
     "bean-kenya":      ("abc596dc-image.jpg", (0.055, 0.545, 0.375, 0.930), (0.50, 0.50), "Family Room Coffee retail packaging"),
     "bean-colombia":   ("abc596dc-image.jpg", (0.355, 0.545, 0.670, 0.930), (0.50, 0.50), "Family Room Coffee retail packaging"),
     "bean-ethiopia":   ("abc596dc-image.jpg", (0.645, 0.545, 0.960, 0.930), (0.50, 0.50), "Family Room Coffee retail packaging"),
-    # Same photograph as "beans", framed low for use as a darkened hero backdrop.
-    "beans-shelf":     ("abc596dc-image.jpg", (0.00, 0.470, 1.00, 1.000), (0.50, 0.44), "Family Room Coffee retail packaging"),
 }
 
 # name -> (width, height) renditions
 RENDITIONS = {
-    "hero":    [("beans-shelf", 2000, 1125)],
     "card":    [(n, 1000, 750) for n in ("latte-blue", "avocado-toast", "lamb-chops",
                                          "beef-burger", "chicken-burger", "latte-donut")],
-    "tile":    [(n, 900, 900) for n in ("room", "latte-donut", "beans", "thai-curry",
+    "tile":    [(n, 900, 900) for n in ("room", "beef-burger-ad", "beans", "thai-curry",
                                         "chicken-wings", "bolognese")],
     "wide":    [("beans", 1400, 950), ("latte-blue", 1400, 950)],
     "bag":     [(n, 700, 875) for n in ("bean-kenya", "bean-colombia", "bean-ethiopia")],
