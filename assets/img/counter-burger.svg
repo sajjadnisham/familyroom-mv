@@ -1,22 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Placeholder: Beef burger">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="0.3" y2="1">
-      <stop offset="0" stop-color="#382318"/>
-      <stop offset="1" stop-color="#96603A"/>
-    </linearGradient>
-    <pattern id="p" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
-      <rect width="28" height="28" fill="none"/>
-      <line x1="0" y1="0" x2="0" y2="28" stroke="#FAF7F2" stroke-opacity="0.06" stroke-width="10"/>
-    </pattern>
-  </defs>
-  <rect width="800" height="600" fill="url(#g)"/>
-  <rect width="800" height="600" fill="url(#p)"/>
-  <rect x="30" y="30" width="740" height="540" rx="10"
-        fill="none" stroke="#FAF7F2" stroke-opacity="0.45" stroke-width="2"
-        stroke-dasharray="15 15"/>
-  <g transform="translate(400 300)" text-anchor="middle" fill="#FAF7F2"
-     font-family="Helvetica,Arial,sans-serif">
-    <text y="-29" font-size="18" letter-spacing="4.8" opacity="0.65">PLACEHOLDER</text>
-    <text font-size="31" font-weight="600" opacity="0.92"><tspan x="0" dy="0">Beef burger</tspan></text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Illustration: a beef burger">
+  <rect width="800" height="600" fill="#EDDCC4"/>
+  <circle cx="400.0" cy="204.00000000000003" r="240.0" fill="#FFFFFF" opacity="0.22"/>
+  <ellipse cx="400.0" cy="346.00000000000006" rx="237.60000000000002" ry="77.75999999999999" fill="#E4D6C6"/>
+  <ellipse cx="400.0" cy="336.00000000000006" rx="237.60000000000002" ry="77.75999999999999" fill="#F6EDE2"/>
+  <ellipse cx="400.0" cy="336.00000000000006" rx="177.11999999999998" ry="58.32000000000001" fill="#EFE4D6"/>
+  <path d="M274.72 301.44000000000005 a 125.27999999999999 99.36 0 0 1 250.55999999999997 0 Z" fill="#D79A53"/>
+  <rect x="274.72" y="301.44000000000005" width="250.55999999999997" height="23.76" rx="4" fill="#7C9A58"/>
+  <rect x="270.4" y="325.20000000000005" width="259.2" height="34.56" rx="6" fill="#5C2F19"/>
+  <rect x="279.03999999999996" y="359.76000000000005" width="241.92000000000002" height="19.439999999999998" rx="4" fill="#D9A94E"/>
+  <path d="M279.03999999999996 379.20000000000005 a 120.96000000000001 64.8 0 0 0 241.92000000000002 0 Z" fill="#C98C46"/>
+  <circle cx="339.52" cy="245.28000000000006" r="2.6" fill="#FBF3E4"/>
+  <circle cx="382.72" cy="245.28000000000006" r="2.6" fill="#FBF3E4"/>
+  <circle cx="430.24" cy="245.28000000000006" r="2.6" fill="#FBF3E4"/>
+  <circle cx="469.12" cy="245.28000000000006" r="2.6" fill="#FBF3E4"/>
 </svg>

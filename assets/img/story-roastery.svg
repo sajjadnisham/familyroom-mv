@@ -1,22 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Placeholder: The micro-roastery">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="0.3" y2="1">
-      <stop offset="0" stop-color="#2B1F1A"/>
-      <stop offset="1" stop-color="#8A4726"/>
-    </linearGradient>
-    <pattern id="p" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
-      <rect width="28" height="28" fill="none"/>
-      <line x1="0" y1="0" x2="0" y2="28" stroke="#FAF7F2" stroke-opacity="0.06" stroke-width="10"/>
-    </pattern>
-  </defs>
-  <rect width="1200" height="800" fill="url(#g)"/>
-  <rect width="1200" height="800" fill="url(#p)"/>
-  <rect x="40" y="40" width="1120" height="720" rx="13"
-        fill="none" stroke="#FAF7F2" stroke-opacity="0.45" stroke-width="2"
-        stroke-dasharray="20 20"/>
-  <g transform="translate(600 400)" text-anchor="middle" fill="#FAF7F2"
-     font-family="Helvetica,Arial,sans-serif">
-    <text y="-40" font-size="24" letter-spacing="6.4" opacity="0.65">PLACEHOLDER</text>
-    <text font-size="42" font-weight="600" opacity="0.92"><tspan x="0" dy="0">The micro-roastery</tspan></text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Illustration: the micro-roastery">
+  <rect width="1200" height="800" fill="#E2CDB4"/>
+  <rect width="1200" height="800" fill="#E2CDB4"/>
+  <rect y="592.0" width="1200" height="208.0" fill="#5C2F19"/>
+  <rect x="300.0" y="192.0" width="456.0" height="320.0" rx="16" fill="#8E9599"/>
+  <circle cx="528.0" cy="352.0" r="115.99999999999999" fill="#5C666A"/>
+  <circle cx="528.0" cy="352.0" r="84.0" fill="#5C2F19"/>
+  <ellipse cx="492.0" cy="336.0" rx="21.599999999999998" ry="15.6" fill="#8A4726"/>
+  <ellipse cx="576.0" cy="360.0" rx="21.599999999999998" ry="15.6" fill="#8A4726"/>
+  <ellipse cx="516.0" cy="392.0" rx="21.599999999999998" ry="15.6" fill="#8A4726"/>
+  <ellipse cx="552.0" cy="304.0" rx="21.599999999999998" ry="15.6" fill="#8A4726"/>
+  <path d="M756.0 272.0 l120.0 0 l0 176.0 l84.00000000000001 0" fill="none" stroke="#6E787C" stroke-width="9"/>
+  <rect x="216.0" y="112.0" width="156.0" height="128.0" rx="6" fill="#6E787C"/>
+  <circle cx="246.0" cy="176.0" r="13.2" fill="#D9785B"/>
+  <circle cx="288.0" cy="176.0" r="13.2" fill="#D9785B"/>
+  <circle cx="330.0" cy="176.0" r="13.2" fill="#D9785B"/>
+  <path d="M910.0 592.0 q 0 -40.0 26.0 -44.0 q 26.0 4 26.0 44.0 Z" fill="#C9B18E"/>
+  <ellipse cx="936.0" cy="548.0" rx="16.0" ry="5.0" fill="#8A4726"/>
+  <path d="M1059.72 592.0 q 0 -31.200000000000003 20.28 -34.32 q 20.28 4 20.28 34.32 Z" fill="#C9B18E"/>
+  <ellipse cx="1080.0" cy="557.68" rx="12.48" ry="3.9000000000000004" fill="#8A4726"/>
+  <path d="M515.0 80.0 c -9 -6.5 9 -9.0 0 -23.0" fill="none" stroke="#2B1F1A" stroke-width="2.5" stroke-linecap="round" opacity="0.18"/>
+  <path d="M528.0 80.0 c -9 -6.5 9 -9.0 0 -31.0" fill="none" stroke="#2B1F1A" stroke-width="2.5" stroke-linecap="round" opacity="0.18"/>
+  <path d="M541.0 80.0 c -9 -6.5 9 -9.0 0 -23.0" fill="none" stroke="#2B1F1A" stroke-width="2.5" stroke-linecap="round" opacity="0.18"/>
 </svg>

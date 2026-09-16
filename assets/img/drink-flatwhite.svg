@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img" aria-label="Illustration: flat white">
+  <rect width="600" height="600" fill="#EADBC6"/>
+  <circle cx="300.0" cy="216.0" r="180.0" fill="#FFFFFF" opacity="0.22"/>
+  <ellipse cx="300.0" cy="468.8" rx="228.0" ry="38.760000000000005" fill="#E4D6C6"/>
+  <ellipse cx="300.0" cy="460.8" rx="228.0" ry="38.760000000000005" fill="#F6EDE2"/>
+  <path d="M446.0 329.76 c 112.5 -6 120.0 104.16000000000001 0 87.36000000000001" fill="none" stroke="#F6EDE2" stroke-width="27.0" stroke-linecap="round"/>
+  <path d="M150.0 276.0 L450.0 276.0 L417.0 444.0 Q300.0 470.88 183.0 444.0 Z" fill="#F6EDE2"/>
+  <ellipse cx="300.0" cy="282.0" rx="145.0" ry="37.7" fill="#A97449"/>
+  <ellipse cx="300.0" cy="282.0" rx="81.2" ry="21.75" fill="#F6EDE2" opacity="0.95"/>
+  <ellipse cx="300.0" cy="277.0" rx="70.5" ry="21.15" fill="#F6EDE2" opacity="0.9"/>
+  <ellipse cx="300.0" cy="280.6" rx="59.925" ry="17.9775" fill="#F6EDE2" opacity="0.9"/>
+  <ellipse cx="300.0" cy="284.2" rx="49.349999999999994" ry="14.804999999999998" fill="#F6EDE2" opacity="0.9"/>
+  <ellipse cx="300.0" cy="287.8" rx="38.775000000000006" ry="11.632500000000002" fill="#F6EDE2" opacity="0.9"/>
+  <ellipse cx="300.0" cy="291.4" rx="28.200000000000003" ry="8.46" fill="#F6EDE2" opacity="0.9"/>
+  <path d="M300.0 274.0 L300.0 292.0" stroke="#8A4726" stroke-width="2" opacity="0.5"/>
+  <path d="M254.11764705882354 262.0 c -9 -22.941176470588236 9 -31.764705882352942 0 -81.17647058823529" fill="none" stroke="#2B1F1A" stroke-width="8.8" stroke-linecap="round" opacity="0.28"/>
+  <path d="M300.0 262.0 c -9 -22.941176470588236 9 -31.764705882352942 0 -109.41176470588235" fill="none" stroke="#2B1F1A" stroke-width="8.8" stroke-linecap="round" opacity="0.28"/>
+  <path d="M345.88235294117646 262.0 c -9 -22.941176470588236 9 -31.764705882352942 0 -81.17647058823529" fill="none" stroke="#2B1F1A" stroke-width="8.8" stroke-linecap="round" opacity="0.28"/>
+</svg>

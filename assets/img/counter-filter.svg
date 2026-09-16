@@ -1,22 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Placeholder: Hand-brewed filter">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="0.3" y2="1">
-      <stop offset="0" stop-color="#33251E"/>
-      <stop offset="1" stop-color="#7A5238"/>
-    </linearGradient>
-    <pattern id="p" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
-      <rect width="28" height="28" fill="none"/>
-      <line x1="0" y1="0" x2="0" y2="28" stroke="#FAF7F2" stroke-opacity="0.06" stroke-width="10"/>
-    </pattern>
-  </defs>
-  <rect width="800" height="600" fill="url(#g)"/>
-  <rect width="800" height="600" fill="url(#p)"/>
-  <rect x="30" y="30" width="740" height="540" rx="10"
-        fill="none" stroke="#FAF7F2" stroke-opacity="0.45" stroke-width="2"
-        stroke-dasharray="15 15"/>
-  <g transform="translate(400 300)" text-anchor="middle" fill="#FAF7F2"
-     font-family="Helvetica,Arial,sans-serif">
-    <text y="-29" font-size="18" letter-spacing="4.8" opacity="0.65">PLACEHOLDER</text>
-    <text font-size="31" font-weight="600" opacity="0.92"><tspan x="0" dy="0">Hand-brewed filter</tspan></text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Illustration: hand-brewed filter coffee">
+  <rect width="800" height="600" fill="#E7DCC9"/>
+  <circle cx="400.0" cy="216.0" r="240.0" fill="#FFFFFF" opacity="0.22"/>
+  <ellipse cx="400.0" cy="476.0" rx="243.2" ry="41.344" fill="#E4D6C6"/>
+  <ellipse cx="400.0" cy="468.0" rx="243.2" ry="41.344" fill="#F6EDE2"/>
+  <path d="M240.0 204.0 L560.0 204.0 L524.8 444.0 Q400.0 482.4 275.2 444.0 Z" fill="#F6EDE2"/>
+  <ellipse cx="400.0" cy="210.0" rx="155.0" ry="40.300000000000004" fill="#7A4526"/>
+  <path d="M338.8235294117647 190.0 c -9 -30.58823529411765 9 -42.35294117647059 0 -108.23529411764706" fill="none" stroke="#2B1F1A" stroke-width="11.8" stroke-linecap="round" opacity="0.28"/>
+  <path d="M400.0 190.0 c -9 -30.58823529411765 9 -42.35294117647059 0 -145.88235294117646" fill="none" stroke="#2B1F1A" stroke-width="11.8" stroke-linecap="round" opacity="0.28"/>
+  <path d="M461.1764705882353 190.0 c -9 -30.58823529411765 9 -42.35294117647059 0 -108.23529411764706" fill="none" stroke="#2B1F1A" stroke-width="11.8" stroke-linecap="round" opacity="0.28"/>
 </svg>

@@ -1,0 +1,48 @@
+name: Deploy to GitHub Pages
+
+# Requires, in repo Settings:
+#   · Pages → Source → "GitHub Actions"
+#   · a public repo, OR GitHub Pro/Team for Pages on a private repo
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Publish only the site itself, not README.md, DEPLOY.md, seo/ or tools/.
+      - name: Stage site
+        run: |
+          mkdir -p _site
+          cp index.html menu.html our-coffee.html visit.html pitch.html _site/
+          cp -r assets _site/
+          # Pages serves straight from the artifact, so Jekyll must not reprocess it.
+          touch _site/.nojekyll
+          echo "staged:" && find _site -type f | sort
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

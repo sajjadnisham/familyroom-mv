@@ -1,22 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="Placeholder: Inside the room">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="0.3" y2="1">
-      <stop offset="0" stop-color="#3A2B22"/>
-      <stop offset="1" stop-color="#9B7A5E"/>
-    </linearGradient>
-    <pattern id="p" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
-      <rect width="28" height="28" fill="none"/>
-      <line x1="0" y1="0" x2="0" y2="28" stroke="#FAF7F2" stroke-opacity="0.06" stroke-width="10"/>
-    </pattern>
-  </defs>
-  <rect width="800" height="800" fill="url(#g)"/>
-  <rect width="800" height="800" fill="url(#p)"/>
-  <rect x="40" y="40" width="720" height="720" rx="13"
-        fill="none" stroke="#FAF7F2" stroke-opacity="0.45" stroke-width="2"
-        stroke-dasharray="20 20"/>
-  <g transform="translate(400 400)" text-anchor="middle" fill="#FAF7F2"
-     font-family="Helvetica,Arial,sans-serif">
-    <text y="-40" font-size="24" letter-spacing="6.4" opacity="0.65">PLACEHOLDER</text>
-    <text font-size="42" font-weight="600" opacity="0.92"><tspan x="0" dy="0">Inside the room</tspan></text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="Illustration: inside the room">
+  <rect width="800" height="800" fill="#F0E2CE"/>
+  <rect width="800" height="800" fill="#F0E2CE"/>
+  <rect y="576.0" width="800" height="224.00000000000003" fill="#DFCDB4"/>
+  <rect x="48.0" y="112.00000000000001" width="240.0" height="288.0" rx="8" fill="#BFE3E0" stroke="#F6EDE2" stroke-width="7"/>
+  <path d="M168.0 112.00000000000001 L168.0 400.0" stroke="#F6EDE2" stroke-width="6"/>
+  <rect x="448.00000000000006" y="176.0" width="288.0" height="9" rx="4" fill="#8A4726"/>
+  <rect x="463.99999999999994" y="88.0" width="32.0" height="88.0" rx="2" fill="#D9785B"/>
+  <rect x="507.99999999999994" y="88.0" width="32.0" height="88.0" rx="2" fill="#1C7C7A"/>
+  <rect x="552.0" y="88.0" width="32.0" height="88.0" rx="2" fill="#D9A94E"/>
+  <rect x="596.0" y="88.0" width="32.0" height="88.0" rx="2" fill="#5C2F19"/>
+  <rect x="640.0" y="88.0" width="32.0" height="88.0" rx="2" fill="#7C9A58"/>
+  <rect x="684.0" y="88.0" width="32.0" height="88.0" rx="2" fill="#D9785B"/>
+  <rect x="64.0" y="448.00000000000006" width="272.0" height="160.0" rx="10" fill="#8A4726"/>
+  <rect x="64.0" y="416.0" width="272.0" height="64.0" rx="8" fill="#5C2F19"/>
+  <rect x="400.0" y="480.0" width="272.0" height="10" rx="5" fill="#F6EDE2"/>
+  <rect x="520.0" y="480.0" width="8" height="128.0" fill="#5C2F19"/>
+  <rect x="448.00000000000006" y="436.00000000000006" width="22" height="16" rx="3" fill="#F6EDE2"/>
+  <ellipse cx="459.00000000000006" cy="436.00000000000006" rx="11" ry="3.4" fill="#5C2F19"/>
+  <rect x="576.0" y="451.99999999999994" width="30" height="7" rx="2" fill="#D9A94E"/>
+  <path d="M384.0 0 L384.0 112.00000000000001" stroke="#2B1F1A" stroke-width="2.5"/>
+  <path d="M362.0 160.0 a 22 22 0 0 1 44 0 Z" fill="#2B1F1A"/>
+  <ellipse cx="384.0" cy="164.0" rx="13" ry="4" fill="#D9A94E"/>
+  <path d="M560.0 0 L560.0 112.00000000000001" stroke="#2B1F1A" stroke-width="2.5"/>
+  <path d="M538.0 160.0 a 22 22 0 0 1 44 0 Z" fill="#2B1F1A"/>
+  <ellipse cx="560.0" cy="164.0" rx="13" ry="4" fill="#D9A94E"/>
 </svg>

@@ -1,17 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Placeholder: Beach terrace at golden hour">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="0.3" y2="1">
-      <stop offset="0" stop-color="#3A2A22"/>
-      <stop offset="1" stop-color="#8A5B3C"/>
-    </linearGradient>
-    <pattern id="p" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
-      <rect width="28" height="28" fill="none"/>
-      <line x1="0" y1="0" x2="0" y2="28" stroke="#FAF7F2" stroke-opacity="0.06" stroke-width="10"/>
-    </pattern>
-  </defs>
-  <rect width="1600" height="900" fill="url(#g)"/>
-  <rect width="1600" height="900" fill="url(#p)"/>
-  <rect x="45" y="45" width="1510" height="810" rx="15"
-        fill="none" stroke="#FAF7F2" stroke-opacity="0.45" stroke-width="2"
-        stroke-dasharray="22 22"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Illustration: the beach terrace at golden hour">
+  <rect width="1600" height="900" fill="#3A2A22"/>
+  <rect width="1600" height="504.00000000000006" fill="#4E3A2E"/>
+  <defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3A2A22"/><stop offset="1" stop-color="#9C5F36"/></linearGradient><linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1E6F6C"/><stop offset="1" stop-color="#12504E"/></linearGradient></defs>
+  <rect width="1600" height="504.00000000000006" fill="url(#sky)"/>
+  <circle cx="1120.0" cy="352.8" r="136.0" fill="#F7C789" opacity="0.95"/>
+  <circle cx="1120.0" cy="352.8" r="216.0" fill="#F0B073" opacity="0.16"/>
+  <rect y="504.00000000000006" width="1600" height="395.99999999999994" fill="url(#sea)"/>
+  <path d="M0 514.0 q 144.0 -9 288.0 0 t 288.0 0 t 288.0 0 t 288.0 0 t 288.0 0 t 288.0 0" fill="none" stroke="#7FC2BD" stroke-width="3" opacity="0.34"/>
+  <path d="M0 540.0 q 144.0 -9 288.0 0 t 288.0 0 t 288.0 0 t 288.0 0 t 288.0 0 t 288.0 0" fill="none" stroke="#7FC2BD" stroke-width="3" opacity="0.30"/>
+  <path d="M0 566.0 q 144.0 -9 288.0 0 t 288.0 0 t 288.0 0 t 288.0 0 t 288.0 0 t 288.0 0" fill="none" stroke="#7FC2BD" stroke-width="3" opacity="0.26"/>
+  <path d="M0 592.0 q 144.0 -9 288.0 0 t 288.0 0 t 288.0 0 t 288.0 0 t 288.0 0 t 288.0 0" fill="none" stroke="#7FC2BD" stroke-width="3" opacity="0.22"/>
+  <path d="M0 618.0 q 144.0 -9 288.0 0 t 288.0 0 t 288.0 0 t 288.0 0 t 288.0 0 t 288.0 0" fill="none" stroke="#7FC2BD" stroke-width="3" opacity="0.18"/>
+  <path d="M0 644.0 q 144.0 -9 288.0 0 t 288.0 0 t 288.0 0 t 288.0 0 t 288.0 0 t 288.0 0" fill="none" stroke="#7FC2BD" stroke-width="3" opacity="0.14"/>
+  <path d="M0 670.0 q 144.0 -9 288.0 0 t 288.0 0 t 288.0 0 t 288.0 0 t 288.0 0 t 288.0 0" fill="none" stroke="#7FC2BD" stroke-width="3" opacity="0.10"/>
+  <ellipse cx="1120.0" cy="510.00000000000006" rx="80.0" ry="126.00000000000001" fill="#F0B073" opacity="0.28"/>
+  <rect y="792.0" width="1600" height="108.0" fill="#241A15"/>
+  <rect y="769.5" width="1600" height="27.0" fill="#2F221B"/>
+  <rect x="0" y="697.5" width="1600" height="6" fill="#241A15" opacity="0.95"/>
+  <rect x="32.0" y="697.5" width="5" height="76.5" fill="#241A15" opacity="0.95"/>
+  <rect x="147.2" y="697.5" width="5" height="76.5" fill="#241A15" opacity="0.95"/>
+  <rect x="262.4" y="697.5" width="5" height="76.5" fill="#241A15" opacity="0.95"/>
+  <rect x="377.59999999999997" y="697.5" width="5" height="76.5" fill="#241A15" opacity="0.95"/>
+  <rect x="492.79999999999995" y="697.5" width="5" height="76.5" fill="#241A15" opacity="0.95"/>
+  <rect x="608.0" y="697.5" width="5" height="76.5" fill="#241A15" opacity="0.95"/>
+  <rect x="723.1999999999999" y="697.5" width="5" height="76.5" fill="#241A15" opacity="0.95"/>
+  <rect x="838.4" y="697.5" width="5" height="76.5" fill="#241A15" opacity="0.95"/>
+  <rect x="953.5999999999999" y="697.5" width="5" height="76.5" fill="#241A15" opacity="0.95"/>
+  <rect x="1068.8" y="697.5" width="5" height="76.5" fill="#241A15" opacity="0.95"/>
+  <rect x="1184.0" y="697.5" width="5" height="76.5" fill="#241A15" opacity="0.95"/>
+  <rect x="1299.1999999999998" y="697.5" width="5" height="76.5" fill="#241A15" opacity="0.95"/>
+  <rect x="1414.3999999999999" y="697.5" width="5" height="76.5" fill="#241A15" opacity="0.95"/>
+  <rect x="1529.6" y="697.5" width="5" height="76.5" fill="#241A15" opacity="0.95"/>
+  <rect x="162.0" y="720.0" width="92.0" height="9.0" rx="4" fill="#241A15"/>
+  <rect x="162.0" y="630.0" width="12.0" height="90.0" rx="4" fill="#241A15"/>
+  <rect x="162.0" y="625.5" width="92.0" height="10.0" rx="5" fill="#241A15"/>
+  <rect x="437.68" y="720.0" width="84.64" height="8.280000000000001" rx="4" fill="#241A15"/>
+  <rect x="437.68" y="630.0" width="11.040000000000001" height="90.0" rx="4" fill="#241A15"/>
+  <rect x="437.68" y="625.5" width="84.64" height="9.200000000000001" rx="5" fill="#241A15"/>
+  <ellipse cx="344.0" cy="715.5" rx="56.00000000000001" ry="17.599999999999998" fill="#241A15"/>
+  <rect x="340.8" y="715.5" width="5" height="54.0" fill="#241A15"/>
 </svg>

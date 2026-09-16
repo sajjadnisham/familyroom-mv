@@ -1,22 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="Placeholder: Barista at the machine">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="0.3" y2="1">
-      <stop offset="0" stop-color="#2E241E"/>
-      <stop offset="1" stop-color="#7E6250"/>
-    </linearGradient>
-    <pattern id="p" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
-      <rect width="28" height="28" fill="none"/>
-      <line x1="0" y1="0" x2="0" y2="28" stroke="#FAF7F2" stroke-opacity="0.06" stroke-width="10"/>
-    </pattern>
-  </defs>
-  <rect width="800" height="800" fill="url(#g)"/>
-  <rect width="800" height="800" fill="url(#p)"/>
-  <rect x="40" y="40" width="720" height="720" rx="13"
-        fill="none" stroke="#FAF7F2" stroke-opacity="0.45" stroke-width="2"
-        stroke-dasharray="20 20"/>
-  <g transform="translate(400 374)" text-anchor="middle" fill="#FAF7F2"
-     font-family="Helvetica,Arial,sans-serif">
-    <text y="-40" font-size="24" letter-spacing="6.4" opacity="0.65">PLACEHOLDER</text>
-    <text font-size="42" font-weight="600" opacity="0.92"><tspan x="0" dy="0">Barista at the</tspan><tspan x="0" dy="52">machine</tspan></text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="Illustration: a barista at the machine">
+  <rect width="800" height="800" fill="#E7D6C0"/>
+  <rect width="800" height="800" fill="#E7D6C0"/>
+  <rect y="560.0" width="800" height="240.0" fill="#8A4726"/>
+  <rect y="528.0" width="800" height="48.0" fill="#3C2A20"/>
+  <rect x="448.00000000000006" y="240.0" width="288.0" height="288.0" rx="10" fill="#9AA3A6"/>
+  <rect x="472.00000000000006" y="272.0" width="240.0" height="80.0" rx="6" fill="#6E787C"/>
+  <circle cx="504.00000000000006" cy="312.0" r="17.599999999999998" fill="#E8D9C6"/>
+  <circle cx="584.0" cy="312.0" r="17.599999999999998" fill="#E8D9C6"/>
+  <circle cx="664.0" cy="312.0" r="17.599999999999998" fill="#E8D9C6"/>
+  <rect x="528.0" y="400.0" width="72.0" height="40.0" rx="4" fill="#5C666A"/>
+  <rect x="548.0" y="440.00000000000006" width="32.0" height="48.0" rx="3" fill="#F6EDE2"/>
+  <path d="M556.0 488.0 L556.0 516.0" stroke="#5C2F19" stroke-width="2.4" opacity="0.8"/>
+  <path d="M563.0 488.0 L563.0 516.0" stroke="#5C2F19" stroke-width="2.4" opacity="0.8"/>
+  <circle cx="224.00000000000003" cy="240.0" r="57.599999999999994" fill="#C98F63"/>
+  <path d="M164.00000000000003 220.00000000000003 a 60.0 49.6 0 0 1 120.0 0 Z" fill="#2B1F1A"/>
+  <path d="M136.00000000000003 560.0 L156.00000000000003 320.0 Q224.00000000000003 284.0 292.0 320.0 L312.0 560.0 Z" fill="#1C7C7A"/>
+  <path d="M280.00000000000006 352.0 Q384.0 400.0 528.0 440.00000000000006" fill="none" stroke="#C98F63" stroke-width="28.000000000000004" stroke-linecap="round"/>
+  <rect x="172.00000000000003" y="416.0" width="104.0" height="144.0" rx="4" fill="#F6EDE2" opacity="0.85"/>
 </svg>

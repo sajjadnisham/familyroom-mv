@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img" aria-label="Illustration: hand-brewed filter">
+  <rect width="600" height="600" fill="#E7DCC9"/>
+  <circle cx="300.0" cy="216.0" r="180.0" fill="#FFFFFF" opacity="0.22"/>
+  <ellipse cx="300.0" cy="476.0" rx="182.4" ry="31.008000000000003" fill="#E4D6C6"/>
+  <ellipse cx="300.0" cy="468.0" rx="182.4" ry="31.008000000000003" fill="#F6EDE2"/>
+  <path d="M180.0 204.0 L420.0 204.0 L393.6 444.0 Q300.0 482.4 206.39999999999998 444.0 Z" fill="#F6EDE2"/>
+  <ellipse cx="300.0" cy="210.0" rx="115.0" ry="29.900000000000002" fill="#7A4526"/>
+  <path d="M254.11764705882354 190.0 c -9 -22.941176470588236 9 -31.764705882352942 0 -81.17647058823529" fill="none" stroke="#2B1F1A" stroke-width="8.8" stroke-linecap="round" opacity="0.28"/>
+  <path d="M300.0 190.0 c -9 -22.941176470588236 9 -31.764705882352942 0 -109.41176470588235" fill="none" stroke="#2B1F1A" stroke-width="8.8" stroke-linecap="round" opacity="0.28"/>
+  <path d="M345.88235294117646 190.0 c -9 -22.941176470588236 9 -31.764705882352942 0 -81.17647058823529" fill="none" stroke="#2B1F1A" stroke-width="8.8" stroke-linecap="round" opacity="0.28"/>
+</svg>

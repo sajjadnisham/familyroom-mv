@@ -1,22 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="Placeholder: Terrace by the sea">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="0.3" y2="1">
-      <stop offset="0" stop-color="#1C7C7A"/>
-      <stop offset="1" stop-color="#7FC2BD"/>
-    </linearGradient>
-    <pattern id="p" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
-      <rect width="28" height="28" fill="none"/>
-      <line x1="0" y1="0" x2="0" y2="28" stroke="#FAF7F2" stroke-opacity="0.06" stroke-width="10"/>
-    </pattern>
-  </defs>
-  <rect width="800" height="800" fill="url(#g)"/>
-  <rect width="800" height="800" fill="url(#p)"/>
-  <rect x="40" y="40" width="720" height="720" rx="13"
-        fill="none" stroke="#FAF7F2" stroke-opacity="0.45" stroke-width="2"
-        stroke-dasharray="20 20"/>
-  <g transform="translate(400 400)" text-anchor="middle" fill="#FAF7F2"
-     font-family="Helvetica,Arial,sans-serif">
-    <text y="-40" font-size="24" letter-spacing="6.4" opacity="0.65">PLACEHOLDER</text>
-    <text font-size="42" font-weight="600" opacity="0.92"><tspan x="0" dy="0">Terrace by the sea</tspan></text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="Illustration: the terrace by the sea">
+  <rect width="800" height="800" fill="#BFE3E0"/>
+  <rect width="800" height="416.0" fill="#BFE3E0"/>
+  <circle cx="608.0" cy="141.44" r="72.0" fill="#FFE2B8" opacity="1.0"/>
+  <rect y="416.0" width="800" height="112.00000000000001" fill="#1C7C7A"/>
+  <path d="M0 424.0 q 96.0 -7 200.0 0 t 200.0 0 t 200.0 0 t 200.0 0" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.45"/>
+  <path d="M0 437.0 q 96.0 -7 200.0 0 t 200.0 0 t 200.0 0 t 200.0 0" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.37"/>
+  <path d="M0 450.0 q 96.0 -7 200.0 0 t 200.0 0 t 200.0 0 t 200.0 0" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.29"/>
+  <path d="M0 463.0 q 96.0 -7 200.0 0 t 200.0 0 t 200.0 0 t 200.0 0" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity="0.21"/>
+  <rect y="528.0" width="800" height="272.0" fill="#EFE0CB"/>
+  <ellipse cx="272.0" cy="624.0" rx="136.0" ry="44.0" fill="#F6EDE2"/>
+  <rect x="268.0" y="624.0" width="8" height="104.0" fill="#8A4726"/>
+  <ellipse cx="272.0" cy="728.0" rx="48.0" ry="14.399999999999999" fill="#5C2F19"/>
+  <rect x="52.0" y="608.0" width="72.0" height="40.0" rx="5" fill="#8A4726"/>
+  <rect x="52.0" y="512.0" width="72.0" height="96.0" rx="6" fill="#5C2F19"/>
+  <rect x="420.0" y="608.0" width="72.0" height="40.0" rx="5" fill="#8A4726"/>
+  <rect x="420.0" y="512.0" width="72.0" height="96.0" rx="6" fill="#5C2F19"/>
+  <rect x="262.0" y="608.0" width="20" height="15" rx="3" fill="#F6EDE2"/>
+  <ellipse cx="272.0" cy="608.0" rx="10" ry="3" fill="#5C2F19"/>
+  <path d="M263.16 598.0 c -9 -4.42 9 -6.12 0 -15.64" fill="none" stroke="#2B1F1A" stroke-width="1.7" stroke-linecap="round" opacity="0.28"/>
+  <path d="M272.0 598.0 c -9 -4.42 9 -6.12 0 -21.080000000000002" fill="none" stroke="#2B1F1A" stroke-width="1.7" stroke-linecap="round" opacity="0.28"/>
+  <path d="M280.84 598.0 c -9 -4.42 9 -6.12 0 -15.64" fill="none" stroke="#2B1F1A" stroke-width="1.7" stroke-linecap="round" opacity="0.28"/>
+  <path d="M496.0 496.0 a 112.00000000000001 80.0 0 0 1 224.00000000000003 0 Z" fill="#D9785B"/>
+  <rect x="605.0" y="496.0" width="6" height="208.0" fill="#8A4726"/>
 </svg>

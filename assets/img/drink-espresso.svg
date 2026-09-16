@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img" aria-label="Illustration: espresso">
+  <rect width="600" height="600" fill="#EADBC6"/>
+  <circle cx="300.0" cy="216.0" r="180.0" fill="#FFFFFF" opacity="0.22"/>
+  <ellipse cx="300.0" cy="464.0" rx="141.36" ry="24.031200000000005" fill="#E4D6C6"/>
+  <ellipse cx="300.0" cy="456.0" rx="141.36" ry="24.031200000000005" fill="#F6EDE2"/>
+  <path d="M389.0 362.4 c 69.75 -6 74.4 74.4 0 62.400000000000006" fill="none" stroke="#F6EDE2" stroke-width="27.0" stroke-linecap="round"/>
+  <path d="M207.0 324.0 L393.0 324.0 L372.54 444.0 Q300.0 463.2 227.45999999999998 444.0 Z" fill="#F6EDE2"/>
+  <ellipse cx="300.0" cy="330.0" rx="88.0" ry="22.880000000000003" fill="#5C2F19"/>
+  <ellipse cx="300.0" cy="330.0" rx="84.0" ry="21.84" fill="#C08A52"/>
+  <ellipse cx="300.0" cy="330.0" rx="46.2" ry="12.6" fill="#8A5A30"/>
+  <path d="M254.11764705882354 310.0 c -9 -22.941176470588236 9 -31.764705882352942 0 -81.17647058823529" fill="none" stroke="#2B1F1A" stroke-width="8.8" stroke-linecap="round" opacity="0.28"/>
+  <path d="M300.0 310.0 c -9 -22.941176470588236 9 -31.764705882352942 0 -109.41176470588235" fill="none" stroke="#2B1F1A" stroke-width="8.8" stroke-linecap="round" opacity="0.28"/>
+  <path d="M345.88235294117646 310.0 c -9 -22.941176470588236 9 -31.764705882352942 0 -81.17647058823529" fill="none" stroke="#2B1F1A" stroke-width="8.8" stroke-linecap="round" opacity="0.28"/>
+</svg>

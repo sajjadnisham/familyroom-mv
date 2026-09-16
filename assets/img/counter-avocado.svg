@@ -1,22 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Placeholder: Avocado toast &amp; eggs">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="0.3" y2="1">
-      <stop offset="0" stop-color="#3E4A2E"/>
-      <stop offset="1" stop-color="#8CA163"/>
-    </linearGradient>
-    <pattern id="p" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
-      <rect width="28" height="28" fill="none"/>
-      <line x1="0" y1="0" x2="0" y2="28" stroke="#FAF7F2" stroke-opacity="0.06" stroke-width="10"/>
-    </pattern>
-  </defs>
-  <rect width="800" height="600" fill="url(#g)"/>
-  <rect width="800" height="600" fill="url(#p)"/>
-  <rect x="30" y="30" width="740" height="540" rx="10"
-        fill="none" stroke="#FAF7F2" stroke-opacity="0.45" stroke-width="2"
-        stroke-dasharray="15 15"/>
-  <g transform="translate(400 300)" text-anchor="middle" fill="#FAF7F2"
-     font-family="Helvetica,Arial,sans-serif">
-    <text y="-29" font-size="18" letter-spacing="4.8" opacity="0.65">PLACEHOLDER</text>
-    <text font-size="31" font-weight="600" opacity="0.92"><tspan x="0" dy="0">Avocado toast &amp; eggs</tspan></text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Illustration: avocado toast with eggs">
+  <rect width="800" height="600" fill="#E6E3CE"/>
+  <circle cx="400.0" cy="204.00000000000003" r="240.0" fill="#FFFFFF" opacity="0.22"/>
+  <ellipse cx="400.0" cy="346.00000000000006" rx="237.60000000000002" ry="77.75999999999999" fill="#E4D6C6"/>
+  <ellipse cx="400.0" cy="336.00000000000006" rx="237.60000000000002" ry="77.75999999999999" fill="#F6EDE2"/>
+  <ellipse cx="400.0" cy="336.00000000000006" rx="177.11999999999998" ry="58.32000000000001" fill="#EFE4D6"/>
+  <rect x="266.08000000000004" y="245.28000000000006" width="267.84" height="99.36" rx="7" fill="#D7A866"/>
+  <rect x="279.03999999999996" y="236.64000000000004" width="241.92000000000002" height="86.4" rx="6" fill="#7C9A58"/>
+  <ellipse cx="326.56" cy="271.20000000000005" rx="34.56" ry="21.6" fill="#8FAE68"/>
+  <ellipse cx="389.2" cy="262.56000000000006" rx="34.56" ry="21.6" fill="#8FAE68"/>
+  <ellipse cx="456.16" cy="273.36000000000007" rx="34.56" ry="21.6" fill="#8FAE68"/>
+  <circle cx="464.8" cy="305.76000000000005" r="43.2" fill="#FBF3E4"/>
+  <circle cx="464.8" cy="305.76000000000005" r="21.6" fill="#D9A94E"/>
 </svg>

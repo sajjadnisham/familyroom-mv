@@ -1,22 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="Placeholder: Breakfast plate">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="0.3" y2="1">
-      <stop offset="0" stop-color="#4A3A26"/>
-      <stop offset="1" stop-color="#C4A874"/>
-    </linearGradient>
-    <pattern id="p" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
-      <rect width="28" height="28" fill="none"/>
-      <line x1="0" y1="0" x2="0" y2="28" stroke="#FAF7F2" stroke-opacity="0.06" stroke-width="10"/>
-    </pattern>
-  </defs>
-  <rect width="800" height="800" fill="url(#g)"/>
-  <rect width="800" height="800" fill="url(#p)"/>
-  <rect x="40" y="40" width="720" height="720" rx="13"
-        fill="none" stroke="#FAF7F2" stroke-opacity="0.45" stroke-width="2"
-        stroke-dasharray="20 20"/>
-  <g transform="translate(400 400)" text-anchor="middle" fill="#FAF7F2"
-     font-family="Helvetica,Arial,sans-serif">
-    <text y="-40" font-size="24" letter-spacing="6.4" opacity="0.65">PLACEHOLDER</text>
-    <text font-size="42" font-weight="600" opacity="0.92"><tspan x="0" dy="0">Breakfast plate</tspan></text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="Illustration: a breakfast plate">
+  <rect width="800" height="800" fill="#F2E4CE"/>
+  <rect width="800" height="800" fill="#F2E4CE"/>
+  <rect y="496.0" width="800" height="304.0" fill="#D9C3A4"/>
+  <ellipse cx="336.0" cy="448.00000000000006" rx="240.0" ry="84.0" fill="#E4D6C6"/>
+  <ellipse cx="336.0" cy="432.0" rx="240.0" ry="84.0" fill="#F6EDE2"/>
+  <rect x="187.2" y="315.2" width="297.6" height="110.4" rx="7" fill="#D7A866"/>
+  <rect x="201.6" y="305.6" width="268.8" height="96.0" rx="6" fill="#7C9A58"/>
+  <ellipse cx="254.39999999999998" cy="344.0" rx="38.4" ry="24.0" fill="#8FAE68"/>
+  <ellipse cx="324.0" cy="334.4" rx="38.4" ry="24.0" fill="#8FAE68"/>
+  <ellipse cx="398.4" cy="346.4" rx="38.4" ry="24.0" fill="#8FAE68"/>
+  <circle cx="408.0" cy="382.4" r="48.0" fill="#FBF3E4"/>
+  <circle cx="408.0" cy="382.4" r="24.0" fill="#D9A94E"/>
+  <ellipse cx="640.0" cy="352.0" rx="96.0" ry="33.6" fill="#F6EDE2"/>
+  <rect x="604.0" y="264.0" width="72.0" height="88.0" rx="4" fill="#F6EDE2"/>
+  <ellipse cx="640.0" cy="264.0" rx="36.0" ry="11.200000000000001" fill="#5C2F19"/>
+  <path d="M632.2 231.99999999999997 c -9 -3.9 9 -5.3999999999999995 0 -13.799999999999999" fill="none" stroke="#2B1F1A" stroke-width="1.5" stroke-linecap="round" opacity="0.28"/>
+  <path d="M640.0 231.99999999999997 c -9 -3.9 9 -5.3999999999999995 0 -18.599999999999998" fill="none" stroke="#2B1F1A" stroke-width="1.5" stroke-linecap="round" opacity="0.28"/>
+  <path d="M647.8 231.99999999999997 c -9 -3.9 9 -5.3999999999999995 0 -13.799999999999999" fill="none" stroke="#2B1F1A" stroke-width="1.5" stroke-linecap="round" opacity="0.28"/>
+  <rect x="96.0" y="320.0" width="40.0" height="128.0" rx="3" fill="#F6D98E"/>
+  <ellipse cx="115.99999999999999" cy="320.0" rx="20.0" ry="7.199999999999999" fill="#E9C46A"/>
 </svg>
