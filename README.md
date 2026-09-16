@@ -80,8 +80,11 @@ Then, in the code:
 - Replace `assets/img/*.svg` with café-owned photography: hero 16:9 (4:5 crop on mobile), food
   1:1 or 4:5, interiors 3:2. Guest photos on Instagram and Tripadvisor belong to the guests.
 - Swap the two placeholder quote cards on the homepage for owner-approved quotes, credited.
-- Point the map embed at the confirmed pin, and add the WhatsApp click-to-chat link where the
-  Visit page currently says "not published".
+- Swap the `.map-card` link-out block on `index.html` and `visit.html` for a real interactive
+  embed once the pin is confirmed. It deliberately links out rather than framing Google Maps:
+  the address is one of the unconfirmed items above, and sandboxed viewers block third-party
+  frames.
+- Add the WhatsApp click-to-chat link where the Visit page currently says "not published".
 
 Two off-site wins worth doing at the same time: repoint the Google Business Profile's website
 field (it currently sends people to a retired Facebook page), and start replying to reviews —
