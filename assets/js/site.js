@@ -130,9 +130,36 @@
     Array.prototype.forEach.call(groups, function (g) { io.observe(g); });
   }
 
+  /* The navigation floats over the hero and gains a background once the page
+     moves, so the opening scene is not framed by a solid bar. */
+  function headerState() {
+    if (!document.body.classList.contains('has-hero')) return;
+    /* The header stays transparent for as long as something dark sits behind
+       it -- the hero, then the bridge that dissolves out of it -- and turns
+       solid only when the pale page has actually reached it. A plain scroll
+       threshold fires far too early, and handing over mid-bridge would put a
+       cream bar on top of a still-dark background. */
+    var dark = document.querySelector('.bridge') || document.querySelector('[data-orb]');
+    var head = document.querySelector('.site-head');
+    var on = false;
+    function sync() {
+      var edge = head ? head.getBoundingClientRect().bottom : 0;
+      var next = dark
+        ? dark.getBoundingClientRect().bottom < edge + 4
+        : window.scrollY > 40;
+      if (next !== on) {
+        on = next;
+        document.body.classList.toggle('is-scrolled', on);
+      }
+    }
+    window.addEventListener('scroll', sync, { passive: true });
+    sync();
+  }
+
   renderStatus();
   highlightToday();
   navToggle();
   menuTabs();
+  headerState();
   setInterval(renderStatus, 60000);
 })();

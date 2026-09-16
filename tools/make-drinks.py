@@ -37,6 +37,13 @@ DRINKS = {
 SIZE = 760   # one size; the orbit scales with transforms, not with srcset
 
 
+def warm(im, r, g, b):
+    """A gentle channel tilt toward the roast, applied after desaturation so
+    the grey it leaves behind is warm rather than neutral."""
+    a = np.asarray(im).astype(np.float32) * np.array([r, g, b], np.float32)
+    return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8), "RGB")
+
+
 def vignette(im, amount):
     """Darken toward the edge so every still dissolves into the hero's dark
     scene at the same rate, whatever the photograph's own background."""
@@ -63,10 +70,15 @@ def main():
         cx, cy = crop.width // 2, crop.height // 2
         crop = crop.crop((cx - side // 2, cy - side // 2, cx + side // 2, cy + side // 2))
         crop = ImageOps.autocontrast(crop, cutoff=(0.3, 0.0), preserve_tone=True)
-        # a touch of warmth and bite, so the stills read as one set under the
-        # hero's dark cinematic grade
-        crop = ImageEnhance.Color(crop).enhance(1.06)
-        crop = ImageEnhance.Contrast(crop).enhance(1.04)
+        # One restrained grade across the set. The photographs are of bright
+        # ceramic -- teal, cobalt, red -- on orange wood, and at full
+        # saturation five of them orbiting together read as a colour wheel
+        # rather than a coffee bar. Pulling the saturation down and warming
+        # what is left keeps them photographic while letting the espresso
+        # background carry the palette.
+        crop = ImageEnhance.Color(crop).enhance(0.66)
+        crop = warm(crop, 1.045, 1.0, 0.915)
+        crop = ImageEnhance.Contrast(crop).enhance(1.07)
         if bright != 1.0:
             crop = ImageEnhance.Brightness(crop).enhance(bright)
         crop = vignette(crop, vig)

@@ -9,10 +9,10 @@
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Public+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
 </head>
-<body>
+<body class="has-hero">
 
 <div class="demo-bar">
   <b>Concept demo</b> · not affiliated with or endorsed by Family Room Coffee · sample prices · some photo rights unconfirmed
@@ -26,13 +26,12 @@
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="nav" id="site-nav" aria-label="Main">
-      <a href="index.html" aria-current="page">Home</a>
       <a href="menu.html">Menu</a>
       <a href="our-coffee.html">Our Coffee</a>
       <a href="visit.html">Visit</a>
-      <a class="btn btn-primary btn-sm" href="tel:+9609400040">Call</a>
+      <a class="btn btn-primary btn-sm" href="menu.html">View Menu</a>
     </nav>
-    <a class="btn btn-primary btn-sm" href="tel:+9609400040">Call +960 940-0040</a>
+    <a class="btn btn-primary btn-sm" href="menu.html">View Menu</a>
   </div>
 </header>
 
@@ -45,8 +44,12 @@
       <span class="orb-glow" aria-hidden="true"></span>
 
       <div class="orb-copy">
-        <p class="orb-brand">Family Room Coffee</p>
-        <h1>Specialty coffee, thoughtfully made.</h1>
+        <p class="orb-brand">Family Room Coffee · Hulhumalé</p>
+        <h1>Specialty coffee,<br><em>thoughtfully made.</em></h1>
+        <div class="orb-cta">
+          <a class="btn btn-primary" href="menu.html">View Menu</a>
+          <a class="btn btn-outline" href="visit.html">Find Us</a>
+        </div>
       </div>
 
       <div class="orb-scene" data-orb-scene aria-label="The drinks we pour">
@@ -56,14 +59,11 @@
       <div class="orb-readout">
         <p class="orb-name" data-orb-name aria-live="polite">Cappuccino</p>
         <p class="orb-desc" data-orb-desc>Rich espresso under a deep cap of velvety foam.</p>
-        <div class="orb-cta">
-          <a class="btn btn-primary" href="menu.html">View Menu</a>
-          <a class="btn btn-outline" href="visit.html">Find Us</a>
-        </div>
+        <div class="orb-rule" aria-hidden="true"></div>
         <ol class="orb-dots" aria-hidden="true">
           <li class="orb-dot is-on"></li><li class="orb-dot"></li><li class="orb-dot"></li><li class="orb-dot"></li><li class="orb-dot"></li>
         </ol>
-        <p class="orb-cue">Scroll to turn the orbit</p>
+        <p class="orb-cue">Scroll</p>
       </div>
 
       <span class="orb-vig" aria-hidden="true"></span>
@@ -71,7 +71,17 @@
   </div>
 </section>
 
-<!-- 2 · Today strip -->
+<!-- 2 · Bridge · the scene releases into the collection -->
+<section class="bridge">
+  <div class="bridge-in">
+    <p class="eyebrow">Our coffee</p>
+    <h2>The whole collection,<br><em>on one counter.</em></h2>
+    <p>Roasted by Coffee Lab Maldives and poured from nine in the morning until
+      half past one at night, a few steps from the water.</p>
+  </div>
+</section>
+
+<!-- 3 · Today strip -->
 <div class="today">
   <div class="wrap today-in">
     <span class="today-item">
@@ -84,14 +94,14 @@
   </div>
 </div>
 
-<!-- 3 · From the counter -->
+<!-- 4 · From the counter -->
 <section>
   <div class="wrap">
     <div class="section-head">
       <div>
         <p class="eyebrow">From the counter</p>
         <h2>What people order</h2>
-        <p class="lede">A sample of the range. The prices shown are illustrative — the café sets the real ones.</p>
+        <p class="lede">The prices shown are illustrative — the café sets the real ones.</p>
       </div>
       <a class="btn btn-ghost" href="menu.html">Full menu →</a>
     </div>
@@ -149,7 +159,7 @@
   </div>
 </section>
 
-<!-- 4 · Why people come back -->
+<!-- 5 · Why people come back -->
 <section class="band">
   <div class="wrap">
     <p class="eyebrow">Why people come back</p>

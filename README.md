@@ -42,7 +42,7 @@ Google Fonts stylesheet need a network connection.
 ```
 index.html  menu.html  our-coffee.html  visit.html  pitch.html
 assets/css/site.css     one stylesheet, design tokens on :root
-assets/js/hero.js       hero frame scrubbing and steam
+assets/js/hero.js       the scroll-driven orbit: four beats, depth and steam
 assets/js/site.js       open-now logic, nav toggle, menu tab tracking
 assets/drinks/*.webp    5 drink stills for the hero orbit
 tools/make-drinks.py    crops, grades and regenerates them
@@ -58,11 +58,13 @@ DEPLOY.md               Cloudflare Pages + familyroom.mv runbook
 .github/workflows/      deploy to Cloudflare Pages on push to main
 ```
 
-**Design tokens** follow the audit's proposed palette — Espresso `#2B1F1A`, Sand `#FAF7F2`,
-Crema `#E8D9C6`, Lagoon `#1C7C7A` (buttons and links), Terracotta `#D9785B` (the open-now dot and
-tags only), Driftwood `#6E625A`. Type is Fraunces for headings and Public Sans for body and
-prices, with tabular numerals on prices. **The palette is a proposal, not the café's brand** —
-sample the real colours from their logo and swap the `--espresso` / primary slot first.
+**Design tokens** are a restrained coffee palette — Espresso `#2B1F1A`, Sand `#FAF7F2`,
+Crema `#E8D9C6`, Brass `#7A4F1E` (buttons and links, 7.08:1 on white), Terracotta `#D9785B` (the
+open-now dot and tags only), Driftwood `#6E625A`. The teal accent an earlier pass used was the
+only colour on the page that had nothing to do with coffee, and it has been replaced. Type is
+Cormorant Garamond for headings — an editorial serif, set large — and Inter for body and prices,
+with tabular numerals on prices. **The palette is a proposal, not the café's brand** — sample the
+real colours from their logo and swap the `--espresso` / primary slot first.
 
 **The open-now indicator** (`assets/js/site.js`) evaluates hours in Maldives time (UTC+5) so it is
 correct for a visitor in any time zone. Hours are stored as minutes from midnight, with an end
@@ -86,6 +88,22 @@ elliptical path; scroll position sets the orbit's rotation, so the visitor turns
 watching it spin. Whichever drink reaches the front is drawn into the middle, scaled up, sharpened
 and named.
 
+**The scroll is choreographed in four beats, not linear**, because a constant rotation reads as a
+machine rather than an experience:
+
+| beat | scroll | what happens |
+| --- | --- | --- |
+| Still | 0.00–0.13 | one cup, centred, alone. Only the steam moves. |
+| Wake | 0.11–0.26 | the rest of the collection emerges from the dark, nearest first, as the headline eases back. |
+| Orbit | 0.26–0.90 | the collection turns. Rotation is eased *per segment*, so each drink dwells at the centre and the travel between them accelerates and settles. |
+| Hand off | 0.90–1.00 | the satellites recede and dim, the featured cup settles, and the scene releases into the page. |
+
+The per-segment easing is the part that matters: the path is divided into one segment per
+hand-over and each is run through a quintic ease, which produces a rest at every drink instead of
+a conveyor belt. `--orb-p`, `--orb-intro`, `--orb-read` and `--orb-out` are written to the hero
+element each frame, so CSS — not JavaScript — decides what the copy, the read-out and the hairline
+do with each beat.
+
 The depth is real rather than implied. Each node's position on the ellipse gives a signed depth,
 and that single number drives scale, opacity, blur, tilt and stacking order together — front
 drinks are larger, sharper and brighter; back drinks are smaller, softer and dimmer. The featured
@@ -104,12 +122,25 @@ iced coffee in the orbit, because no photograph of those was supplied — and da
 cappuccino to stand in for them would put fabricated menu items in front of the café. Two real
 photographs would add each one; see `tools/make-drinks.py`.
 
-The stills are 5 × ~22 KB. `tools/make-drinks.py` bakes a per-drink vignette so every photograph
+The stills are 5 × ~21 KB. `tools/make-drinks.py` bakes a per-drink vignette so every photograph
 dissolves into the hero's darkness at the same rate, whatever its own background — the bean bags
-were shot against a pale wall and need the most.
+were shot against a pale wall and need the most. It also applies one restrained grade across the
+set: the photographs are of bright ceramic — teal, cobalt, red — on orange wood, and at full
+saturation five of them orbiting together read as a colour wheel rather than a coffee bar, so the
+saturation comes down to 0.66 and what is left is tilted warm.
+
+**The hero does not end at a section boundary.** A `.bridge` section carries the scene's dark
+field down through a gradient into the page's sand, and holds the "Our coffee" heading inside the
+dark part — the dissolve is deliberately held back until the copy has finished, and lands on the
+today strip's own colour, so there is no seam and no warm-grey text on a warm-grey background. The
+navigation floats transparently over that whole dark run (the scene's field is carried up behind
+the header by `.orb::before`, so the nav reads as sitting *inside* the hero) and only turns solid
+when the pale page actually reaches it — not on a scroll threshold, which fires far too early.
 
 Under `prefers-reduced-motion` the track collapses to normal flow, the nodes lay out as a static
-line-up with the first drink featured, the steam is hidden, and the rAF loop never starts.
+line-up with the first drink featured and the other four smaller beside it, the steam is hidden,
+and the rAF loop never starts. The scroll-linked custom properties are neutralised there, and
+`hero.js` skips its inline node sizing so CSS can set that line-up.
 
 **Photography is client-supplied, and its rights are not uniform.** Every photo came from the
 client as a phone screenshot; `tools/make-photos.py` holds the crop box and focus point for each

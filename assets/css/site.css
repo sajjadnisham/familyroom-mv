@@ -4,8 +4,8 @@
 :root{
   color-scheme:light;
   --espresso:#2B1F1A;
-  --lagoon:#1C7C7A;
-  --lagoon-dark:#15625F;
+  --brass:#7A4F1E;
+  --brass-dark:#5E3C15;
   --crema:#E8D9C6;
   --crema-soft:#F2E8DC;
   --sand:#FAF7F2;
@@ -14,8 +14,8 @@
   --rule:#E3D8CA;
   --white:#FFFFFF;
 
-  --display:"Fraunces","Iowan Old Style","Palatino Linotype",Georgia,serif;
-  --body:"Public Sans","Helvetica Neue",Arial,system-ui,sans-serif;
+  --display:"Cormorant Garamond","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --body:"Inter","Helvetica Neue",Arial,system-ui,sans-serif;
 
   --wrap:1120px;
   --radius:12px;
@@ -38,21 +38,23 @@ body{
 }
 
 img{max-width:100%;height:auto;display:block}
-a{color:var(--lagoon);text-underline-offset:3px}
-a:hover{color:var(--lagoon-dark)}
-:focus-visible{outline:3px solid var(--lagoon);outline-offset:3px;border-radius:4px}
+a{color:var(--brass);text-underline-offset:3px}
+a:hover{color:var(--brass-dark)}
+:focus-visible{outline:3px solid var(--brass);outline-offset:3px;border-radius:4px}
 
 h1,h2,h3,h4{
   font-family:var(--display);
   font-weight:600;
-  line-height:1.12;
-  letter-spacing:-.015em;
+  line-height:1.08;
+  letter-spacing:-.005em;
   text-wrap:balance;
   margin:0;
 }
-h1{font-size:clamp(2.2rem,6.2vw,4rem)}
-h2{font-size:clamp(1.7rem,4vw,2.5rem)}
-h3{font-size:1.2rem}
+/* Cormorant has a small x-height and a light stem, so the display scale runs
+   larger than a grotesque would at the same optical weight. */
+h1{font-size:clamp(2.6rem,7vw,4.6rem)}
+h2{font-size:clamp(2rem,4.6vw,2.9rem)}
+h3{font-size:1.35rem;font-weight:600}
 p{margin:0 0 1rem}
 .lede{font-size:clamp(1.05rem,2.2vw,1.25rem);color:var(--driftwood);max-width:60ch}
 
@@ -100,7 +102,7 @@ section{padding-block:clamp(48px,7vw,84px)}
   padding:8px 12px;border-radius:8px;
 }
 .nav a:hover{background:var(--crema)}
-.nav a[aria-current="page"]{color:var(--lagoon);background:var(--crema-soft)}
+.nav a[aria-current="page"]{color:var(--brass);background:var(--crema-soft)}
 
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
@@ -108,12 +110,12 @@ section{padding-block:clamp(48px,7vw,84px)}
   padding:12px 20px;border-radius:10px;border:1.5px solid transparent;
   cursor:pointer;transition:background-color .18s ease,color .18s ease,border-color .18s ease;
 }
-.btn-primary{background:var(--lagoon);color:#fff}
-.btn-primary:hover{background:var(--lagoon-dark);color:#fff}
+.btn-primary{background:var(--brass);color:#fff}
+.btn-primary:hover{background:var(--brass-dark);color:#fff}
 .btn-outline{border-color:var(--espresso);color:var(--espresso);background:transparent}
 .btn-outline:hover{background:var(--espresso);color:var(--sand)}
 .btn-ghost{border-color:var(--rule);color:var(--espresso);background:var(--white)}
-.btn-ghost:hover{border-color:var(--lagoon);color:var(--lagoon)}
+.btn-ghost:hover{border-color:var(--brass);color:var(--brass)}
 .btn-sm{padding:9px 15px;font-size:.88rem}
 
 .nav-toggle{
@@ -176,7 +178,7 @@ section{padding-block:clamp(48px,7vw,84px)}
 .card:hover figure img{transform:scale(1.04)}
 @media (prefers-reduced-motion:reduce){.card:hover figure img{transform:none}}
 .card-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
-.card-body h3{font-size:1.08rem}
+.card-body h3{font-size:1.22rem;font-weight:600}
 .card-body p{margin:0;font-size:.92rem;color:var(--driftwood)}
 .price{
   margin-top:auto;padding-top:10px;font-weight:600;font-size:.95rem;
@@ -191,7 +193,7 @@ section{padding-block:clamp(48px,7vw,84px)}
   display:grid;place-items:center;color:var(--espresso);flex:none;
 }
 .reason .ico svg{width:24px;height:24px}
-.reason h3{font-size:1.08rem}
+.reason h3{font-size:1.2rem}
 .reason p{margin:0;font-size:.93rem;color:var(--driftwood)}
 
 /* ---------- gallery ---------- */
@@ -211,7 +213,7 @@ section{padding-block:clamp(48px,7vw,84px)}
   display:block;background:var(--white);border:1px solid var(--rule);border-radius:var(--radius);
   padding:18px 20px;text-decoration:none;color:var(--espresso);
 }
-.badge:hover{border-color:var(--lagoon)}
+.badge:hover{border-color:var(--brass)}
 .badge b{display:block;font-family:var(--display);font-size:1.7rem;font-weight:600;line-height:1.1}
 .badge span{display:block;font-size:.85rem;color:var(--driftwood);margin-top:4px}
 .quote{
@@ -262,16 +264,16 @@ section{padding-block:clamp(48px,7vw,84px)}
     var(--crema-soft);
   color:var(--espresso);transition:border-color .18s ease;
 }
-.map-card:hover{border-color:var(--lagoon);color:var(--espresso)}
+.map-card:hover{border-color:var(--brass);color:var(--espresso)}
 .map-pin{
   width:46px;height:46px;border-radius:50%;background:var(--white);
-  border:1px solid var(--rule);display:grid;place-items:center;color:var(--lagoon);margin-bottom:4px;
+  border:1px solid var(--rule);display:grid;place-items:center;color:var(--brass);margin-bottom:4px;
 }
 .map-pin svg{width:24px;height:24px}
 .map-card b{font-family:var(--display);font-size:1.25rem;font-weight:600}
 .map-card > span:not(.map-pin):not(.map-go){font-size:.9rem;color:var(--driftwood)}
-.map-go{margin-top:8px;font-size:.88rem;font-weight:600;color:var(--lagoon)}
-.map-card:hover .map-go{color:var(--lagoon-dark)}
+.map-go{margin-top:8px;font-size:.88rem;font-weight:600;color:var(--brass)}
+.map-card:hover .map-go{color:var(--brass-dark)}
 
 .contact-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .contact-list li{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;font-size:.95rem;overflow-wrap:anywhere}
@@ -290,7 +292,7 @@ section{padding-block:clamp(48px,7vw,84px)}
   font-size:.88rem;font-weight:600;text-decoration:none;color:var(--espresso);
   padding:7px 14px;border:1.5px solid var(--rule);border-radius:999px;background:var(--white);
 }
-.menu-tabs a:hover,.menu-tabs a.active{border-color:var(--lagoon);color:var(--lagoon)}
+.menu-tabs a:hover,.menu-tabs a.active{border-color:var(--brass);color:var(--brass)}
 @media (max-width:860px){.menu-tabs{top:60px}}
 
 .menu-group{padding-block:clamp(32px,5vw,52px);scroll-margin-top:130px}
@@ -314,7 +316,7 @@ section{padding-block:clamp(48px,7vw,84px)}
 .faq details{background:var(--white);border:1px solid var(--rule);border-radius:var(--radius);padding:14px 18px}
 .faq summary{font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";color:var(--lagoon);font-weight:600}
+.faq summary::after{content:"+";color:var(--brass);font-weight:600}
 .faq details[open] summary::after{content:"–"}
 .faq p{margin:.7rem 0 0;font-size:.94rem;color:var(--driftwood)}
 
@@ -333,7 +335,7 @@ section{padding-block:clamp(48px,7vw,84px)}
   font-family:var(--display);font-weight:600;font-size:.95rem;
   display:grid;place-items:center;color:var(--espresso);
 }
-.steps h3{font-size:1.05rem;margin-bottom:4px}
+.steps h3{font-size:1.18rem;margin-bottom:4px}
 .steps p{margin:0;font-size:.93rem;color:var(--driftwood)}
 
 /* ---------- final cta ---------- */
@@ -412,7 +414,7 @@ section{padding-block:clamp(48px,7vw,84px)}
 }
 .origin img{width:100%;aspect-ratio:4/5;object-fit:cover;height:auto}
 .origin-body{padding:15px 17px 17px}
-.origin h3{font-size:1.05rem;margin:0}
+.origin h3{font-size:1.25rem;font-weight:600;margin:0}
 .origin .region{
   display:block;font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;
   color:var(--terracotta);margin:.3rem 0 .5rem;
@@ -435,6 +437,14 @@ section{padding-block:clamp(48px,7vw,84px)}
    full-bleed sticky stage and must not carry it, or the track starts below
    the fold and the stage overhangs. */
 .orb{--head:68px;--orb-steam:1;position:relative;padding:0;background:#120E0C;color:#F3E9DE}
+/* The scene's dark field is carried up behind the (transparent) header, so the
+   nav reads as floating inside the hero instead of sitting on a pale band.
+   hero.js writes --head from the measured header height, which makes the cap
+   meet the demo notice exactly. */
+.orb::before{
+  content:"";position:absolute;left:0;right:0;bottom:100%;
+  height:var(--head);background:#120E0C;pointer-events:none;
+}
 .orb-track{position:relative;height:420vh}
 .orb-stage{
   /* --orb-h is set by hero.js from the measured header + notice height; the
@@ -448,8 +458,8 @@ section{padding-block:clamp(48px,7vw,84px)}
 .orb-glow{
   position:absolute;inset:0;z-index:0;pointer-events:none;
   background:
-    radial-gradient(46% 38% at 50% 52%,rgba(222,158,95,.22),transparent 70%),
-    radial-gradient(80% 60% at 84% 8%,rgba(28,124,122,.10),transparent 72%);
+    radial-gradient(44% 36% at 50% 52%,rgba(226,166,104,.24),transparent 70%),
+    radial-gradient(90% 64% at 82% 6%,rgba(122,79,30,.16),transparent 74%);
 }
 .orb-vig{
   position:absolute;inset:0;z-index:6;pointer-events:none;
@@ -457,15 +467,23 @@ section{padding-block:clamp(48px,7vw,84px)}
 }
 
 /* brand block */
-.orb-copy{position:relative;z-index:5;text-align:center;max-width:44rem}
+.orb-copy{
+  position:relative;z-index:5;text-align:center;max-width:46rem;
+  /* Holds the stage alone through the opening beat, then yields. --orb-intro
+     and --orb-read are written by hero.js from the scroll position. */
+  opacity:calc(.34 + .66 * var(--orb-intro,1));
+  transform:translate3d(0,calc((1 - var(--orb-intro,1)) * -14px),0);
+}
 .orb-brand{
-  font-family:var(--mono,inherit);font-size:.72rem;font-weight:600;
-  letter-spacing:.24em;text-transform:uppercase;color:var(--terracotta);margin:0;
+  font-size:.68rem;font-weight:500;letter-spacing:.34em;text-transform:uppercase;
+  color:#C9A47C;margin:0;
 }
 .orb-copy h1{
-  font-size:clamp(1.55rem,3.2vw,2.7rem);color:#FFF9F1;margin:.5rem 0 0;
-  letter-spacing:-.015em;text-shadow:0 2px 26px rgba(8,6,5,.7);
+  font-size:clamp(2rem,4.4vw,3.6rem);color:#FFF9F1;margin:.75rem 0 0;
+  font-weight:400;line-height:1.06;letter-spacing:-.004em;
+  text-shadow:0 2px 30px rgba(8,6,5,.75);
 }
+.orb-copy h1 em{font-style:italic;color:#E8CBA6}
 
 /* the orbit */
 .orb-scene{
@@ -486,8 +504,8 @@ section{padding-block:clamp(48px,7vw,84px)}
 }
 /* the drink in the middle carries the light */
 .orb-node.is-featured img{
-  -webkit-mask-image:radial-gradient(circle closest-side,#000 76%,rgba(0,0,0,.55) 92%,transparent 100%);
-  mask-image:radial-gradient(circle closest-side,#000 76%,rgba(0,0,0,.55) 92%,transparent 100%);
+  -webkit-mask-image:radial-gradient(circle closest-side,#000 84%,rgba(0,0,0,.6) 94%,transparent 100%);
+  mask-image:radial-gradient(circle closest-side,#000 84%,rgba(0,0,0,.6) 94%,transparent 100%);
 }
 .orb-steam{
   position:absolute;left:50%;bottom:56%;width:38%;height:40%;
@@ -497,29 +515,48 @@ section{padding-block:clamp(48px,7vw,84px)}
 }
 
 /* featured read-out */
-.orb-readout{position:relative;z-index:5;text-align:center;max-width:30rem}
-.orb-name{
-  font-family:var(--display);font-size:clamp(1.3rem,2.6vw,1.9rem);font-weight:600;
-  color:#FFF9F1;margin:0;letter-spacing:-.01em;
+.orb-readout{
+  position:relative;z-index:5;text-align:center;max-width:32rem;
+  /* Fully legible from the first frame -- an opening beat is quiet, not
+     half-rendered -- and the whole block recedes together at the hand-off.
+     --orb-read only settles it upward as the orbit wakes, which reads as
+     anticipation without costing any contrast. */
+  opacity:var(--orb-out,1);
+  transform:translate3d(0,calc((1 - var(--orb-read,1)) * 14px),0);
 }
-.orb-desc{font-size:.95rem;color:#D8CABB;margin:.35rem 0 0;min-height:2.8em}
+.orb-name{
+  font-family:var(--display);font-size:clamp(1.55rem,3vw,2.3rem);font-weight:500;
+  color:#FFF9F1;margin:0;letter-spacing:.01em;
+}
+.orb-desc{
+  font-size:.95rem;color:#CDBCAA;margin:.45rem 0 0;min-height:2.8em;
+  letter-spacing:.005em;
+}
+/* a hairline that grows with the scroll, in place of a progress bar */
+.orb-rule{
+  width:min(30rem,74vw);height:1px;margin:1.35rem auto 0;
+  background:linear-gradient(90deg,transparent,rgba(233,203,166,.5),transparent);
+  transform:scaleX(calc(.25 + .75 * var(--orb-p,0)));
+  transform-origin:center;
+}
 @keyframes orbIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
 .orb-name.is-in{animation:orbIn .5s cubic-bezier(.2,.8,.2,1) both}
 .orb-desc.is-in{animation:orbIn .5s cubic-bezier(.2,.8,.2,1) .06s both}
-.orb-cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:.9rem}
+.orb-cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:1.4rem}
 .orb .btn-outline{border-color:#F3E9DE;color:#F3E9DE}
 .orb .btn-outline:hover{background:#F3E9DE;color:var(--espresso)}
 .orb-dots{
-  list-style:none;display:flex;gap:7px;justify-content:center;
-  margin:1rem 0 0;padding:0;
+  list-style:none;display:flex;gap:10px;justify-content:center;align-items:center;
+  margin:1.15rem 0 0;padding:0;
 }
 .orb-dot{
-  width:6px;height:6px;border-radius:50%;background:rgba(243,233,222,.26);
-  transition:background-color .45s ease,transform .45s ease;
+  width:22px;height:1px;background:rgba(243,233,222,.2);
+  transition:background-color .6s ease,transform .6s ease;
 }
-.orb-dot.is-on{background:var(--terracotta);transform:scale(1.5)}
+.orb-dot.is-on{background:#E8CBA6;transform:scaleY(2)}
 .orb-cue{
-  margin:.75rem 0 0;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#8B7C6E;
+  margin:.9rem 0 0;font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;
+  color:#8B7C6E;opacity:var(--orb-intro,1);
 }
 
 /* ---------- one column ---------- */
@@ -549,8 +586,11 @@ section{padding-block:clamp(48px,7vw,84px)}
     position:static;height:auto !important;padding-block:clamp(36px,6vw,72px);
   }
   .orb-scene{
-    height:auto;display:flex;flex-wrap:wrap;gap:18px;
-    align-items:center;justify-content:center;max-width:760px;
+    /* !important because the height-aware trims further down the sheet pin a
+       fixed scene height for the orbit; here the line-up sets its own, or the
+       wrapped row lands on top of the read-out. */
+    height:auto !important;display:flex;flex-wrap:wrap;gap:18px;
+    align-items:center;justify-content:center;max-width:920px;
   }
   .orb-node{
     position:static;left:auto;top:auto;translate:none;transform:none !important;
@@ -558,8 +598,107 @@ section{padding-block:clamp(48px,7vw,84px)}
     width:clamp(84px,17vw,132px);height:clamp(84px,17vw,132px);
   }
   .orb-node.is-featured{width:clamp(150px,30vw,230px);height:clamp(150px,30vw,230px);order:-1}
+  /* the scroll-linked custom properties are meaningless without scroll */
+  .orb-readout{opacity:1 !important;transform:none !important}
+  .orb-rule{transform:none !important}
+  .orb-copy{opacity:1 !important;transform:none !important}
   .orb-steam{display:none}
   .orb-dots{display:none}
   .orb-desc{min-height:0}
   .orb-name.is-in,.orb-desc.is-in{animation:none}
+}
+
+/* =========================================================================
+   Navigation — minimal over the hero, solid once the page moves
+   ========================================================================= */
+body.has-hero .site-head{
+  background:transparent;border-bottom-color:transparent;backdrop-filter:none;
+  transition:background-color .5s ease,border-color .5s ease,backdrop-filter .5s ease;
+}
+body.has-hero .site-head .brand,
+body.has-hero .site-head .nav > a{color:#F1E6D9}
+body.has-hero .site-head .brand .sub{color:#A8937E}
+body.has-hero .site-head .brand .mark{background:rgba(241,230,217,.12);color:#F1E6D9}
+body.has-hero .site-head .nav > a:hover{background:rgba(241,230,217,.1)}
+body.has-hero .site-head .nav > a[aria-current="page"]{background:rgba(241,230,217,.14);color:#FFF6E9}
+body.has-hero .site-head .nav-toggle{
+  background:rgba(241,230,217,.08);border-color:rgba(241,230,217,.3);color:#F1E6D9;
+}
+/* the header's own CTA is a quiet outline while it floats over the scene */
+body.has-hero .site-head .head-in > .btn-primary{
+  background:transparent;border-color:rgba(241,230,217,.42);color:#F1E6D9;
+}
+body.has-hero .site-head .head-in > .btn-primary:hover{background:rgba(241,230,217,.14)}
+
+body.has-hero.is-scrolled .site-head{
+  background:rgba(250,247,242,.94);border-bottom-color:var(--rule);backdrop-filter:blur(8px);
+}
+body.has-hero.is-scrolled .site-head .brand,
+body.has-hero.is-scrolled .site-head .nav > a{color:var(--espresso)}
+body.has-hero.is-scrolled .site-head .brand .sub{color:var(--driftwood)}
+body.has-hero.is-scrolled .site-head .brand .mark{background:var(--espresso);color:var(--crema)}
+body.has-hero.is-scrolled .site-head .nav > a:hover{background:var(--crema)}
+body.has-hero.is-scrolled .site-head .nav > a[aria-current="page"]{background:var(--crema-soft);color:var(--brass)}
+body.has-hero.is-scrolled .site-head .nav-toggle{
+  background:var(--white);border-color:var(--rule);color:var(--espresso);
+}
+body.has-hero.is-scrolled .site-head .head-in > .btn-primary{
+  background:var(--brass);border-color:transparent;color:#fff;
+}
+body.has-hero.is-scrolled .site-head .head-in > .btn-primary:hover{background:var(--brass-dark)}
+@media (max-width:860px){
+  body.has-hero .nav{background:#17110D}
+  body.has-hero.is-scrolled .nav{background:var(--sand)}
+  body.has-hero .nav > a{border-bottom-color:rgba(241,230,217,.14)}
+  body.has-hero.is-scrolled .nav > a{border-bottom-color:var(--rule)}
+}
+
+/* =========================================================================
+   Bridge — the hero releases into the collection without a seam
+   ========================================================================= */
+.bridge{
+  padding:0;
+  /* The dissolve is held back until the copy has finished: an earlier version
+     reached sand under the paragraph and left warm grey text on a warm grey
+     background. The pale end now falls entirely in the bottom padding. */
+  background:linear-gradient(180deg,
+    #120E0C 0%,#17110E 30%,#3A2A20 62%,#7A6150 84%,var(--crema) 100%);
+}
+.bridge-in{
+  max-width:var(--wrap);margin:0 auto;
+  padding:clamp(56px,9vw,120px) 20px clamp(96px,13vw,180px);
+  text-align:center;
+}
+.bridge .eyebrow{color:#C9A47C}
+.bridge h2{color:#FFF9F1;font-weight:400;margin-top:.6rem}
+.bridge h2 em{font-style:italic;color:#E8CBA6}
+.bridge p{
+  color:#D9C9B6;max-width:46ch;margin:1rem auto 0;font-size:1.02rem;
+}
+
+/* The editorial display face is larger than the grotesque it replaced, so the
+   hero's three blocks need height-aware trimming to stay inside one stage. */
+@media (min-width:921px) and (max-height:1000px){
+  .orb-copy h1{font-size:clamp(1.9rem,3.4vw,2.7rem)}
+  .orb-scene{height:clamp(210px,34vh,340px)}
+  .orb-name{font-size:clamp(1.4rem,2.4vw,1.85rem)}
+  .orb-desc{min-height:2.6em}
+  .orb-cue{display:none}
+}
+@media (min-width:921px) and (max-height:800px){
+  .orb-copy h1{font-size:clamp(1.7rem,2.9vw,2.2rem)}
+  .orb-scene{height:clamp(190px,28vh,270px)}
+  .orb-rule{margin-top:1rem}
+  .orb-dots{margin-top:.8rem}
+  .orb-desc{min-height:0}
+}
+@media (max-width:920px){
+  .orb-copy h1{font-size:clamp(1.5rem,6.4vw,2.1rem)}
+  .orb-cta{margin-top:1rem}
+  .orb-rule{width:min(20rem,64vw);margin-top:1rem}
+  .orb-dots{margin-top:.85rem}
+}
+@media (max-width:920px) and (max-height:820px){
+  .orb-scene{height:clamp(160px,24svh,220px)}
+  .orb-desc{min-height:2.6em;font-size:.85rem}
 }

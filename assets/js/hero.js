@@ -11,6 +11,18 @@
  * frame — no layout properties — and the loop runs solely while the hero is on
  * screen.
  *
+ * The scroll is choreographed rather than linear, because a constant rotation
+ * reads as a machine. Four beats:
+ *
+ *   STILL    0.00–0.13  one cup, centred, alone. Nothing but steam moves.
+ *   WAKE     0.11–0.26  the rest of the collection emerges from the dark,
+ *                       nearest first, as the first cup eases back.
+ *   ORBIT    0.26–0.90  the collection turns. Rotation is eased per segment,
+ *                       so each drink DWELLS at the centre and the movement
+ *                       between them accelerates and settles.
+ *   HAND OFF 0.90–1.00  the satellites recede and dim, the featured cup
+ *                       settles, and the scene releases into the page.
+ *
  * Every still is a photograph of a drink the café actually serves. There is no
  * espresso, americano, mocha or iced coffee here because no photograph of
  * those was supplied; see tools/make-drinks.py.
@@ -34,7 +46,32 @@
   var N = DRINKS.length;
   var TAU = Math.PI * 2;
 
+  // Beat boundaries, as fractions of the hero's scroll.
+  var STILL_END = 0.13, WAKE_START = 0.11, WAKE_END = 0.26;
+  var ORBIT_START = 0.26, ORBIT_END = 0.90, HANDOFF_START = 0.90;
+
   function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
+  function ramp(p, a, b) {
+    var t = clamp((p - a) / (b - a), 0, 1);
+    return t * t * (3 - 2 * t);
+  }
+  // Smoother than smoothstep at the ends: the dwell at each drink needs a
+  // flatter approach or the stop reads as a snap.
+  function smoother(t) {
+    t = clamp(t, 0, 1);
+    return t * t * t * (t * (t * 6 - 15) + 10);
+  }
+
+  /* Scroll -> orbital rotation. Inside the orbit beat the path is divided into
+     one segment per hand-over and each segment is eased, which produces a rest
+     at every featured drink instead of a conveyor belt. */
+  function rotationAt(p) {
+    var u = clamp((p - ORBIT_START) / (ORBIT_END - ORBIT_START), 0, 1);
+    var seg = u * (N - 1);
+    var k = Math.min(Math.floor(seg), N - 2);
+    var eased = k + smoother(seg - k);
+    return eased * TAU / N;
+  }
 
   function init() {
     var root = document.querySelector('[data-orb]');
@@ -75,12 +112,15 @@
     function stageHeight() {
       var bar = document.querySelector('.demo-bar');
       var head = document.querySelector('.site-head');
-      var off = (bar ? bar.offsetHeight : 0) + (head ? head.offsetHeight : 0);
+      var hh = head ? head.offsetHeight : 68;
+      var off = (bar ? bar.offsetHeight : 0) + hh;
+      root.style.setProperty('--head', hh + 'px');
       root.style.setProperty('--orb-h', (window.innerHeight - off) + 'px');
     }
 
     function measure() {
       stageHeight();
+      narrow = window.innerWidth < 760;
       var r = scene.getBoundingClientRect();
       base = Math.round(Math.min(r.height * 0.36, r.width * 0.22));
       // Keep the widest satellite inside the scene, so the page never scrolls
@@ -88,7 +128,11 @@
       var maxHalf = base * 0.5 * 0.95;
       A = Math.min(r.width * 0.36, r.width / 2 - maxHalf - 6);
       B = r.height * 0.255;
-      nodes.forEach(function (el) { el.style.width = el.style.height = base + 'px'; });
+      // With motion reduced the line-up is sized by CSS -- a large featured
+      // still and four smaller ones -- so inline sizes must not override it.
+      if (!reduce) {
+        nodes.forEach(function (el) { el.style.width = el.style.height = base + 'px'; });
+      }
       if (steamCv) {
         var s = steamCv.getBoundingClientRect();
         var dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -109,10 +153,13 @@
       el.classList.add('is-in');
     }
 
+    var narrow = false;
+
     function layout(p) {
-      // Node i is dead-centre at p = i/(N-1), so the first is featured at the
-      // top of the hero and the last as the hero ends.
-      var rot = p * TAU * (N - 1) / N;
+      var rot = rotationAt(p);
+      // Satellites emerge nearest-first out of the dark, so the collection
+      // assembles rather than appearing all at once.
+      var handoff = ramp(p, HANDOFF_START, 1.0);
       var best = 0, bestW = -1;
 
       for (var i = 0; i < N; i++) {
@@ -131,6 +178,22 @@
         var bl = 5.5 * (1 - f) * (1 - w);
         var tz = -7 * Math.sin(th) * (1 - w);
 
+        // STILL then WAKE: a satellite is absent until its turn to appear,
+        // and arrives from near the centre.
+        var enter = i === 0 ? 1 : ramp(p, WAKE_START + (i - 1) * 0.026, WAKE_END + (i - 1) * 0.026);
+        // HAND OFF: the collection withdraws; the featured cup stays, a little
+        // smaller, and the scene lets go.
+        var leave = handoff * (1 - w);
+
+        x *= 0.34 + 0.66 * enter;
+        y *= 0.34 + 0.66 * enter;
+        sc *= (0.55 + 0.45 * enter) * (1 - 0.22 * handoff * (1 - w) - 0.10 * handoff * w);
+        op *= enter * (1 - 0.92 * leave);
+        bl += 5 * leave;
+
+        // On a phone the far side of the orbit is more clutter than depth.
+        if (narrow && d < -0.30) op *= clamp((d + 0.62) / 0.32, 0, 1);
+
         var el = nodes[i];
         el.style.transform = 'translate3d(' + x.toFixed(2) + 'px,' + y.toFixed(2) +
           'px,0) rotate(' + tz.toFixed(2) + 'deg) scale(' + sc.toFixed(4) + ')';
@@ -141,6 +204,13 @@
 
         if (w > bestW) { bestW = w; best = i; }
       }
+
+      // The brand block holds the stage alone through STILL, then yields to the
+      // drink read-out; at the end both release together.
+      root.style.setProperty('--orb-p', p.toFixed(4));
+      root.style.setProperty('--orb-intro', (1 - ramp(p, STILL_END, WAKE_END)).toFixed(3));
+      root.style.setProperty('--orb-read', ramp(p, STILL_END - 0.02, WAKE_END - 0.04).toFixed(3));
+      root.style.setProperty('--orb-out', (1 - handoff).toFixed(3));
 
       if (best !== featured) {
         featured = best;
