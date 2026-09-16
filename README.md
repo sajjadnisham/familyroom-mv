@@ -42,7 +42,10 @@ Google Fonts stylesheet need a network connection.
 ```
 index.html  menu.html  our-coffee.html  visit.html  pitch.html
 assets/css/site.css     one stylesheet, design tokens on :root
+assets/js/hero.js       hero frame scrubbing and steam
 assets/js/site.js       open-now logic, nav toggle, menu tab tracking
+assets/hero/{lg,sm}/    56-frame coffee sequence, two resolutions
+tools/make-hero-frames.py  renders the sequence from the source photograph
 assets/photos/*.jpg     31 renditions of the 15 client-supplied photographs
 tools/make-photos.py    crops and regenerates them from the originals
 assets/img/*.svg        20 vector illustrations, kept as a rights fallback
@@ -69,16 +72,37 @@ break. Edit the `HOURS` table in one place to change all of it.
 **Mobile** gets a hamburger nav and a sticky Menu · Directions · Call bar. Hover zoom and
 scroll-smoothing back off under `prefers-reduced-motion`.
 
-**The hero is an interactive signature-coffee selector.** Four drinks as inline SVG, switched by
-clicking a cup, clicking the artwork, or arrow keys. It follows the ARIA tabs pattern: the picker
-buttons carry visually-hidden text labels, `aria-selected` tracks state, Home/End jump to the ends.
+**The hero's vertical fit is height-driven, not just width-driven.** The sticky stage sits below
+the site header (`top: var(--head)`) rather than at `top: 0`, because at rest the stage already
+begins below the header and padding for it would be counted twice. Below 1040px of viewport height
+the four-step read-out collapses to just the active step; below 770px on a phone the sub-headline
+goes too. Verified to fit at ten viewports, both at rest and while stuck.
 
-**The brewing sequence is scroll-driven, not timed.** `assets/js/site.js` maps scroll position
-through a 340vh track onto a single progress value, then drives one pour-over: beans fall, the bed
-blooms, the kettle tips, water pools and drains, the carafe fills, a cup is served. Because it
-reads scroll position rather than running a timer, it tracks the scrollbar in both directions.
-Under `prefers-reduced-motion` the track collapses and the finished brew renders once — no
-scroll-linked motion at all.
+**The hero is a photographic coffee, brewed by scrolling.** Scroll position drives a 56-frame
+image sequence on a canvas: the finished cup, out-of-focus beans drifting in, a pour, the crema
+turning, then the latte art resolving as the cup settles. Two things make it photographic rather
+than illustrated:
+
+- Every frame is derived from a real photograph of a flat white
+  (`tools/make-hero-frames.py`). The crema, ceramic, bokeh and lighting are the photograph's own.
+- The swirl is a genuine rotational motion blur with a radius-dependent twist, computed on the
+  liquid disc *after circularising the ellipse*, so it follows the surface in perspective instead
+  of sliding across it. At full strength the art is destroyed; as strength returns to zero the
+  real art re-forms. Nothing is drawn on top to fake it.
+
+`assets/js/hero.js` holds the scrubbing. Scroll sets a target; a frame-rate-independent lerp walks
+the rendered value toward it, so the brew eases in both directions rather than snapping. Frames
+preload first-frame-first at a concurrency of six, and the canvas clamps to the nearest loaded
+frame, so the hero is never blank. Steam is drawn on a second canvas and keeps drifting while the
+page is still — the only motion not tied to scroll. The rAF loop runs only while the hero
+intersects the viewport.
+
+Desktop loads `assets/hero/lg/` (1000px, ~1.5 MB over 56 frames); anything narrow or low-DPR gets
+`assets/hero/sm/` (560px, ~0.7 MB). That weight is the cost of a photographic sequence — reduce
+`--frames` in the generator to trade smoothness for bytes.
+
+Under `prefers-reduced-motion` the track collapses to normal flow, one finished frame is drawn,
+the steam is painted once and faint, and the rAF loop never starts.
 
 **Photography is client-supplied, and its rights are not uniform.** Every photo came from the
 client as a phone screenshot; `tools/make-photos.py` holds the crop box and focus point for each
