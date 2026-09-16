@@ -1,0 +1,36 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Stage only what belongs on the public site. Deploying the repo root would
+      # also publish README.md, seo/ and .github/ — harmless but untidy on a
+      # customer-facing domain.
+      - name: Stage site
+        run: |
+          mkdir -p _site
+          cp index.html menu.html our-coffee.html visit.html pitch.html _headers _site/
+          cp -r assets _site/
+          echo "staged:" && find _site -type f | sort
+
+      - name: Publish
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy _site --project-name=familyroom-mv --branch=main

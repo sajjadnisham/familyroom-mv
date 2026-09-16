@@ -20,6 +20,10 @@ prototype.
 | `visit.html` | Hours (incl. the Friday prayer break), map, contact, and the FAQ that answers the review complaints |
 | `pitch.html` | Not part of the café's site — the sales screen comparing today's Google result with one that has a website |
 
+Deployment to Cloudflare Pages on `familyroom.mv` is documented in
+[`DEPLOY.md`](DEPLOY.md), including the `noindex` removal step that has to happen
+before the site can ever be indexed.
+
 ## Running it
 
 Static HTML, CSS and vanilla JS. No build step and no dependencies.
@@ -39,6 +43,9 @@ assets/css/site.css     one stylesheet, design tokens on :root
 assets/js/site.js       open-now logic, nav toggle, menu tab tracking
 assets/img/*.svg        15 generated placeholders, each labelled on the image itself
 seo/schema.jsonld       CafeOrCoffeeShop schema, not yet embedded (see below)
+_headers                Cloudflare Pages caching and security headers
+DEPLOY.md               Cloudflare Pages + familyroom.mv runbook
+.github/workflows/      deploy to Cloudflare Pages on push to main
 ```
 
 **Design tokens** follow the audit's proposed palette — Espresso `#2B1F1A`, Sand `#FAF7F2`,

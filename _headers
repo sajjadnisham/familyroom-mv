@@ -1,0 +1,18 @@
+# Cloudflare Pages response headers.
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+# Asset filenames are not content-hashed, so a long immutable cache would strand
+# viewers on a stale stylesheet after a deploy. One hour is the safe ceiling until
+# the filenames carry a hash (see DEPLOY.md).
+/assets/*
+  Cache-Control: public, max-age=3600
+
+# HTML always revalidates, so a menu or price correction goes live immediately.
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
