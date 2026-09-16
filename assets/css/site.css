@@ -141,10 +141,16 @@ section{padding-block:clamp(48px,7vw,84px)}
 /* ---------- hero ---------- */
 .hero{position:relative;background:var(--espresso);color:var(--sand);overflow:hidden}
 .hero-media{position:absolute;inset:0}
-.hero-media img{width:100%;height:100%;min-height:100%;object-fit:cover;object-position:center 26%;opacity:.42}
+.hero-media img{width:100%;height:100%;min-height:100%;object-fit:cover;object-position:center 50%;opacity:.7}
 .hero-media::after{
   content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(43,31,26,.45) 0%,rgba(43,31,26,.62) 55%,rgba(43,31,26,.88) 100%);
+  background:
+    linear-gradient(100deg,rgba(43,31,26,.92) 0%,rgba(43,31,26,.78) 45%,rgba(43,31,26,.66) 100%),
+    linear-gradient(180deg,rgba(43,31,26,.30) 0%,rgba(43,31,26,.30) 60%,rgba(43,31,26,.72) 100%);
+}
+@media (max-width:900px){
+  /* Copy sits over the photo on one column, so it needs a heavier scrim. */
+  .hero-media::after{background:linear-gradient(180deg,rgba(43,31,26,.72) 0%,rgba(43,31,26,.80) 60%,rgba(43,31,26,.90) 100%)}
 }
 .hero-in{position:relative;padding-block:clamp(72px,14vw,140px);max-width:44rem}
 .hero h1{color:#FFF9F1}
@@ -556,3 +562,51 @@ section{padding-block:clamp(48px,7vw,84px)}
   .hero-copy h1{font-size:clamp(1.9rem,3.6vw,3rem)}
   .signature{align-content:center}
 }
+
+/* ---------- menu thumbnails ---------- */
+.menu-list li{align-items:center}
+.menu-thumb{
+  flex:none;width:68px;height:68px;border-radius:9px;object-fit:cover;
+  background:var(--crema-soft);border:1px solid var(--rule);
+}
+@media (max-width:480px){.menu-thumb{width:54px;height:54px;border-radius:8px}}
+
+/* ---------- coffee origin cards ---------- */
+.origins{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:22px 0 0}
+.origin{
+  background:var(--white);border:1px solid var(--rule);border-radius:var(--radius);
+  overflow:hidden;display:flex;flex-direction:column;
+}
+.origin img{width:100%;aspect-ratio:4/5;object-fit:cover;height:auto}
+.origin-body{padding:15px 17px 17px}
+.origin h3{font-size:1.05rem;margin:0}
+.origin .region{
+  display:block;font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--terracotta);margin:.3rem 0 .5rem;
+}
+.origin .notes{font-family:var(--display);font-size:1rem;color:var(--espresso);margin:0 0 .5rem}
+.origin dl{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin:0;font-size:.8rem}
+.origin dt{color:var(--driftwood);text-transform:uppercase;letter-spacing:.05em;font-size:.68rem;padding-top:2px}
+.origin dd{margin:0;color:var(--espresso)}
+
+/* On one column the hero stacks copy above the cup, so it overshoots the
+   viewport and the picker lands well below the fold. Tighten the signature
+   block so the cup, its price and the picker read as one unit. */
+@media (max-width:900px){
+  .hero-in{padding-block:32px 40px;gap:18px}
+  .sig-stage{max-width:210px}
+  .sig-info{min-height:0}
+  .sig-name{font-size:1.15rem}
+  .sig-note{font-size:.88rem;max-width:30ch}
+  .signature{gap:10px}
+  .sig-tab{width:48px;height:48px;padding:4px;border-radius:12px}
+  .hero-credit{padding-bottom:18px;font-size:.68rem}
+}
+@media (max-width:420px){
+  .sig-stage{max-width:180px}
+  .hero-copy h1{font-size:clamp(1.75rem,8vw,2.2rem)}
+}
+
+/* Inside a group that has photographs, rows without one still reserve the
+   thumbnail column so the item names stay on one vertical line. */
+.menu-thumb--empty{border-color:transparent;background:transparent}

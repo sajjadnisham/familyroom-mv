@@ -406,3 +406,10 @@ for name, fn in BUILD.items():
 for p in sorted(glob.glob(os.path.join(OUT, "*.svg"))):
     xml.dom.minidom.parse(p)          # malformed XML fails silently in browsers
 print(f"wrote {len(BUILD)} illustrations; all {len(glob.glob(os.path.join(OUT, '*.svg')))} svg files parse")
+
+# NOTE: real client photography now fills every slot these illustrations used to
+# occupy, so assets/img/*.svg is currently unreferenced except favicon.svg. The
+# set is kept on purpose: IMAGE-CREDITS.md flags several photos as needing the
+# photographer's permission, and if any of those are refused, the matching
+# illustration is the drop-in replacement. Delete this file and assets/img/ once
+# every photo is cleared.
