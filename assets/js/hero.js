@@ -34,13 +34,13 @@
   // subject's bounding box, so every drink has a different one) -- passed
   // to the <img> so the browser has a correct aspect ratio before decode.
   var DRINKS = [
-    { slug: 'cappuccino',    name: 'Cappuccino',    w: 1056, h: 933,
+    { slug: 'cappuccino',    name: 'Cappuccino',    w: 978, h: 799,
       desc: 'Rich espresso under a deep cap of velvety foam.',            steam: 1.00 },
-    { slug: 'jasmine',       name: 'Oriental Jasmine', w: 1017, h: 1043,
+    { slug: 'jasmine',       name: 'Oriental Jasmine', w: 935, h: 770,
       desc: 'Loose-leaf jasmine green tea, light and floral.',            steam: 0.80 },
     { slug: 'flat-white',    name: 'Flat White',    w: 1062, h: 739,
       desc: 'House roast under a thin, glossy layer of steamed milk.',    steam: 0.95 },
-    { slug: 'fruits-eden',   name: 'Fruits of Eden', w: 1100, h: 1092,
+    { slug: 'fruits-eden',   name: 'Fruits of Eden', w: 1014, h: 826,
       desc: 'Hibiscus and dried fruit, steeped deep red.',                steam: 0.75 },
     { slug: 'single-origin', name: 'Single Origin', w: 461, h: 697,
       desc: 'Kagunyu, Kenya — berries, citrus and plum, roasted locally.', steam: 0.00 }

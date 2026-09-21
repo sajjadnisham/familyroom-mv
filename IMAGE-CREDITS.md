@@ -56,19 +56,23 @@ these blends.
 
 ## The hero orbit
 
-`assets/drinks/` holds five stills for the hero, each cropped from one of the photographs above:
+`assets/drinks/` holds five stills for the hero. Three (`cappuccino`, `jasmine`, `fruits-eden`) are
+cut from photographs supplied directly for the hero, committed at `assets/drinks/sources/`; the
+other two are cropped from photographs already listed above.
 
 | Still | From | Rights group |
 | --- | --- | --- |
-| `cappuccino` | `latte-donut` | 🟡 guest photo |
+| `cappuccino` | `sources/cappuccino-src.webp` | 🟡 supplied for this purpose; provenance not stated |
 | `flat-white` | `latte-blue` | 🟡 guest photo |
-| `jasmine` | `tea-jasmine` | 🔴 supplier image |
-| `fruits-eden` | `tea-fruits` | 🔴 supplier image |
+| `jasmine` | `sources/jasmine-src.webp` | 🟡 supplied for this purpose; provenance not stated |
+| `fruits-eden` | `sources/fruits-eden-src.webp` | 🟡 supplied for this purpose; provenance not stated |
 | `single-origin` | `beans` | 🟢 café's own |
 
-So **four of the five drinks in the hero need clearance before launch** — the two guest photos and
-the two supplier images. That is the strongest argument for the shoot below: the hero is the first
-thing anyone sees.
+So **four of the five drinks in the hero still need clearance before launch**. The three supplied
+directly for the hero read as professional studio photography — clean isolation, matched lighting,
+no visible branding — which usually means either a paid shoot or stock/supplier imagery, but
+nothing said which, so treat the rights as unconfirmed rather than assume either way. That is the
+strongest argument for the shoot below: the hero is the first thing anyone sees.
 
 The orbit has no espresso, americano, mocha or iced coffee because no photograph of those was
 supplied. Each needs one photograph of the drink with the cup fully in frame (any aspect ratio —

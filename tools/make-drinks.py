@@ -27,23 +27,28 @@ import numpy as np
 from PIL import Image, ImageEnhance, ImageFilter, ImageOps
 from scipy import ndimage
 
-SRC = "/root/.claude/uploads/7d969982-7431-5130-b512-593f4c1a4612"
+UPLOADS = "/root/.claude/uploads/7d969982-7431-5130-b512-593f4c1a4612"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "assets", "drinks")
+SOURCES = os.path.join(OUT, "sources")  # committed to the repo, unlike UPLOADS
 
 # slug: (source file, crop box as source fractions (l, t, r, b), credit)
+# A source under assets/drinks/sources/ is committed to the repo and resolved
+# there; anything else is looked up in the session's upload directory, which
+# is not part of the repo and will not exist in a later session -- re-supply
+# the photo and repoint the entry if one of those ever needs regenerating.
 # The crop is generous rather than square -- it only needs to contain the
 # whole cup with room to spare; the cutout's own silhouette decides the
 # final shape and aspect ratio, not this box.
 DRINKS = {
-    "cappuccino":   ("2e2cca05-image.jpg", (0.0, 0.421, 1.0, 0.890),
-                      "Guest photo, Google Maps (credited 'Raya Ss')"),
+    "cappuccino":   ("sources/cappuccino-src.webp", (0.0, 0.0, 1.0, 1.0),
+                      "Photograph supplied by the client; rights not yet confirmed"),
     "flat-white":   ("1302bbc0-image.jpg", (0.145, 0.430, 0.855, 0.749),
                       "Guest photo by @nishaaarl, reshared by the cafe"),
-    "jasmine":      ("1f4ea03f-image.jpg", (0.085, 0.210, 0.575, 0.700),
-                      "Tea Drop supplier marketing image"),
-    "fruits-eden":  ("93570108-image.jpg", (0.085, 0.210, 0.575, 0.700),
-                      "Tea Drop supplier marketing image"),
+    "jasmine":      ("sources/jasmine-src.webp", (0.0, 0.0, 1.0, 1.0),
+                      "Photograph supplied by the client; rights not yet confirmed"),
+    "fruits-eden":  ("sources/fruits-eden-src.webp", (0.0, 0.0, 1.0, 1.0),
+                      "Photograph supplied by the client; rights not yet confirmed"),
     "single-origin":("abc596dc-image.jpg", (0.020, 0.470, 0.600, 0.934),
                       "Family Room Coffee retail packaging"),
 }
@@ -136,7 +141,8 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     manifest, total = {}, 0
     for slug, (fn, box, credit) in DRINKS.items():
-        im = Image.open(os.path.join(SRC, fn)).convert("RGB")
+        path = os.path.join(OUT, fn) if fn.startswith("sources/") else os.path.join(UPLOADS, fn)
+        im = Image.open(path).convert("RGB")
         w, h = im.size
         px = (round(box[0] * w), round(box[1] * h), round(box[2] * w), round(box[3] * h))
         crop = im.crop(px)

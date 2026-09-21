@@ -1,11 +1,11 @@
 {
   "cappuccino": {
-    "credit": "Guest photo, Google Maps (credited 'Raya Ss')",
+    "credit": "Photograph supplied by the client; rights not yet confirmed",
     "size": [
-      1056,
-      933
+      978,
+      799
     ],
-    "source": "2e2cca05-image.jpg"
+    "source": "sources/cappuccino-src.webp"
   },
   "flat-white": {
     "credit": "Guest photo by @nishaaarl, reshared by the cafe",
@@ -16,20 +16,20 @@
     "source": "1302bbc0-image.jpg"
   },
   "fruits-eden": {
-    "credit": "Tea Drop supplier marketing image",
+    "credit": "Photograph supplied by the client; rights not yet confirmed",
     "size": [
-      1100,
-      1092
+      1014,
+      826
     ],
-    "source": "93570108-image.jpg"
+    "source": "sources/fruits-eden-src.webp"
   },
   "jasmine": {
-    "credit": "Tea Drop supplier marketing image",
+    "credit": "Photograph supplied by the client; rights not yet confirmed",
     "size": [
-      1017,
-      1043
+      935,
+      770
     ],
-    "source": "1f4ea03f-image.jpg"
+    "source": "sources/jasmine-src.webp"
   },
   "single-origin": {
     "credit": "Family Room Coffee retail packaging",
