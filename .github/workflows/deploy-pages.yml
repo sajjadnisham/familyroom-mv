@@ -24,7 +24,7 @@ jobs:
       - name: Stage site
         run: |
           mkdir -p _site
-          cp index.html menu.html our-coffee.html visit.html pitch.html _headers _site/
+          cp index.html menu.html combos.html our-coffee.html visit.html pitch.html _headers _site/
           cp -r assets _site/
           echo "staged:" && find _site -type f | sort
 

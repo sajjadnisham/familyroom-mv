@@ -86,13 +86,19 @@ section{padding-block:clamp(48px,7vw,84px)}
   border-bottom:1px solid var(--rule);
 }
 .head-in{display:flex;align-items:center;gap:20px;min-height:68px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--espresso);margin-right:auto}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--espresso);margin-right:auto}
+/* The client's own sign, not a text initial -- sized up from the 36px badge
+   it replaces so it actually reads as the café's mark, with a soft warm ring
+   behind it so it holds its own against both the pale header and the hero's
+   dark field. */
 .brand .mark{
-  width:36px;height:36px;border-radius:10px;flex:none;
-  background:var(--espresso);color:var(--crema);
-  font-family:var(--display);font-size:1.05rem;font-weight:600;
-  display:grid;place-items:center;
+  width:52px;height:52px;border-radius:50%;flex:none;
+  object-fit:cover;background:var(--espresso);
+  box-shadow:0 0 0 1px rgba(122,79,30,.35),0 2px 10px rgba(43,31,26,.28);
+  transition:box-shadow .3s ease,transform .3s ease;
 }
+.brand:hover .mark{box-shadow:0 0 0 1px rgba(122,79,30,.55),0 3px 16px rgba(122,79,30,.4);transform:scale(1.04)}
+@media (prefers-reduced-motion:reduce){.brand:hover .mark{transform:none}}
 .brand .name{font-family:var(--display);font-size:1.12rem;font-weight:600;line-height:1.1}
 .brand .sub{display:block;font-family:var(--body);font-size:.66rem;letter-spacing:.11em;text-transform:uppercase;color:var(--driftwood)}
 
@@ -186,6 +192,58 @@ section{padding-block:clamp(48px,7vw,84px)}
 }
 .price .tbc{font-weight:400;font-size:.78rem;color:var(--driftwood)}
 
+/* ---------- taster row: a one-line taste of the menu on the homepage,
+   roughly a quarter the height of the six-card grid it replaced -- the
+   detail (description, every dish) stays on menu.html, one click away. ---------- */
+.taster{padding-block:clamp(32px,5vw,52px)}
+.taster-row{
+  list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;
+  gap:22px 20px;
+}
+.taster-row li{
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  width:104px;gap:2px;
+}
+.taster-row img{
+  width:84px;height:84px;border-radius:50%;object-fit:cover;
+  border:1px solid var(--rule);margin-bottom:8px;
+}
+.taster-row b{font-size:.86rem;font-weight:600;line-height:1.25}
+.taster-row span{font-size:.8rem;color:var(--driftwood);font-variant-numeric:tabular-nums}
+@media (max-width:480px){
+  .taster-row{gap:18px 14px}
+  .taster-row li{width:78px}
+  .taster-row img{width:66px;height:66px;margin-bottom:6px}
+  .taster-row b{font-size:.78rem}
+  .taster-row span{font-size:.74rem}
+}
+
+/* ---------- combos ---------- */
+.combo-card{
+  background:var(--white);border:1px solid var(--rule);border-radius:var(--radius);
+  overflow:hidden;display:flex;flex-direction:column;
+}
+.combo-figs{
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  gap:0;background:var(--crema-soft);padding:18px;
+}
+.combo-figs img{
+  width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:50%;
+  border:3px solid var(--white);box-shadow:var(--shadow);
+}
+.combo-figs img:first-child{justify-self:end;margin-right:-14px}
+.combo-figs img:last-child{justify-self:start;margin-left:-14px}
+.combo-plus{
+  position:relative;z-index:2;width:30px;height:30px;border-radius:50%;
+  background:var(--brass);color:#fff;display:grid;place-items:center;
+  font-size:1.1rem;font-weight:600;box-shadow:0 0 0 3px var(--white);
+}
+.combo-card .card-body h3{font-size:1.15rem}
+.combo-was{font-weight:400;font-size:.8rem;color:var(--driftwood);text-decoration:line-through;text-decoration-color:var(--rule)}
+@media (max-width:600px){
+  .combo-grid{grid-template-columns:1fr}
+}
+
 /* ---------- reasons ---------- */
 .reason{display:flex;flex-direction:column;gap:10px}
 .reason .ico{
@@ -251,29 +309,21 @@ section{padding-block:clamp(48px,7vw,84px)}
 .hours tr.friday td{background:var(--crema-soft)}
 .hours tr.friday td:first-child::after{content:" · prayer break";font-weight:400;font-size:.8rem;color:var(--driftwood)}
 
-/* Links out rather than framing Google Maps: the embed is blocked in sandboxed
-   viewers, and the café has not yet confirmed which address is the real pin. */
-.map-card{
-  display:grid;place-content:center;justify-items:center;gap:6px;
-  min-height:340px;padding:28px 24px;text-align:center;text-decoration:none;
-  border:1px solid var(--rule);border-radius:var(--radius);
-  background:
-    radial-gradient(circle at 30% 20%, rgba(28,124,122,.07), transparent 60%),
-    repeating-linear-gradient(90deg, var(--rule) 0 1px, transparent 1px 44px),
-    repeating-linear-gradient(0deg, var(--rule) 0 1px, transparent 1px 44px),
-    var(--crema-soft);
-  color:var(--espresso);transition:border-color .18s ease;
+/* A real embed: a search query (café name + area), not a pin, since the two
+   addresses on record disagree and Google resolves the query itself. No API
+   key needed for this "?q=...&output=embed" form. */
+.map-embed{
+  position:relative;width:100%;aspect-ratio:4/3;max-height:420px;
+  border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden;
+  background:var(--crema-soft);
 }
-.map-card:hover{border-color:var(--brass);color:var(--espresso)}
-.map-pin{
-  width:46px;height:46px;border-radius:50%;background:var(--white);
-  border:1px solid var(--rule);display:grid;place-items:center;color:var(--brass);margin-bottom:4px;
+.map-embed iframe{width:100%;height:100%;border:0;display:block}
+.map-open{
+  display:inline-flex;align-items:center;gap:8px;margin-top:12px;
+  font-size:.92rem;font-weight:600;color:var(--brass);text-decoration:none;
 }
-.map-pin svg{width:24px;height:24px}
-.map-card b{font-family:var(--display);font-size:1.25rem;font-weight:600}
-.map-card > span:not(.map-pin):not(.map-go){font-size:.9rem;color:var(--driftwood)}
-.map-go{margin-top:8px;font-size:.88rem;font-weight:600;color:var(--brass)}
-.map-card:hover .map-go{color:var(--brass-dark)}
+.map-open:hover{color:var(--brass-dark);text-decoration:underline}
+.map-open svg{width:18px;height:18px;flex:none}
 
 .contact-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .contact-list li{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;font-size:.95rem;overflow-wrap:anywhere}
@@ -354,7 +404,7 @@ section{padding-block:clamp(48px,7vw,84px)}
 .foot-grid h4{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:#8E7E70;font-family:var(--body);margin-bottom:10px}
 .foot-grid ul{list-style:none;margin:0;padding:0;display:grid;gap:7px}
 .site-foot .brand{color:#F3E9DE;margin-bottom:12px}
-.site-foot .brand .mark{background:var(--crema);color:var(--espresso)}
+.site-foot .brand .mark{box-shadow:0 0 0 1px rgba(232,203,166,.4),0 2px 10px rgba(0,0,0,.3)}
 .site-foot .brand .sub{color:#8E7E70}
 .foot-base{
   margin-top:32px;padding-top:18px;border-top:1px solid #3A2C24;
@@ -474,6 +524,13 @@ section{padding-block:clamp(48px,7vw,84px)}
   opacity:calc(.34 + .66 * var(--orb-intro,1));
   transform:translate3d(0,calc((1 - var(--orb-intro,1)) * -14px),0);
 }
+/* The client's mark, held quietly at the top of the opening beat -- a fixed
+   presence, not scroll-driven, so it reads before anything starts moving. */
+.orb-logo{
+  width:clamp(56px,7vw,76px);height:clamp(56px,7vw,76px);border-radius:50%;
+  object-fit:cover;margin:0 0 1.1rem;
+  box-shadow:0 0 0 1.5px rgba(241,230,217,.55),0 0 44px rgba(232,203,166,.22);
+}
 .orb-brand{
   font-size:.68rem;font-weight:500;letter-spacing:.34em;text-transform:uppercase;
   color:#C9A47C;margin:0;
@@ -497,15 +554,17 @@ section{padding-block:clamp(48px,7vw,84px)}
   /* centre the node on its own box, then let JS place it */
   translate:-50% -50%;
 }
+/* Cut out, not framed: each drink is its own photograph's silhouette --
+   the cup's own edge, not a disc laid over a square crop -- so it reads as
+   the cup floating in the hero's dark field rather than a photo in a
+   window. object-fit:contain keeps each cutout's own aspect ratio inside
+   the (invisible) square the orbit positions; a drop-shadow is what
+   grounds it in space instead of a frame. JS appends a blur() to this same
+   filter per frame for depth-of-field, so the base shadow lives here and
+   the rule stays the one place either has to agree on order. */
 .orb-node img{
-  width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;
-  -webkit-mask-image:radial-gradient(circle closest-side,#000 68%,rgba(0,0,0,.5) 88%,transparent 100%);
-  mask-image:radial-gradient(circle closest-side,#000 68%,rgba(0,0,0,.5) 88%,transparent 100%);
-}
-/* the drink in the middle carries the light */
-.orb-node.is-featured img{
-  -webkit-mask-image:radial-gradient(circle closest-side,#000 84%,rgba(0,0,0,.6) 94%,transparent 100%);
-  mask-image:radial-gradient(circle closest-side,#000 84%,rgba(0,0,0,.6) 94%,transparent 100%);
+  width:100%;height:100%;object-fit:contain;display:block;
+  filter:drop-shadow(0 10px 16px rgba(8,5,4,.45));
 }
 .orb-steam{
   position:absolute;left:50%;bottom:56%;width:38%;height:40%;
@@ -565,6 +624,7 @@ section{padding-block:clamp(48px,7vw,84px)}
   .orb-track{height:380vh}
   .orb-stage{height:var(--orb-h,calc(100svh - var(--head)));padding:14px 16px calc(78px + env(safe-area-inset-bottom,0px))}
   .orb-scene{height:clamp(190px,32svh,290px)}
+  .orb-logo{width:44px;height:44px;margin-bottom:.7rem}
   .orb-copy h1{font-size:clamp(1.35rem,5.4vw,1.8rem)}
   .orb-desc{font-size:.88rem;min-height:3.4em}
   .orb-cue{display:none}
@@ -573,10 +633,12 @@ section{padding-block:clamp(48px,7vw,84px)}
   .orb-scene{height:clamp(168px,27svh,230px)}
   .orb-copy h1{font-size:clamp(1.2rem,5.6vw,1.5rem)}
   .orb-brand{font-size:.64rem;letter-spacing:.18em}
+  .orb-logo{width:38px;height:38px;margin-bottom:.55rem}
 }
 @media (max-height:720px) and (min-width:921px){
   .orb-scene{height:clamp(200px,34vh,320px)}
   .orb-cue{display:none}
+  .orb-logo{display:none}
 }
 
 /* ---------- no motion: a static line-up, nothing scroll-linked ---------- */
@@ -618,7 +680,9 @@ body.has-hero .site-head{
 body.has-hero .site-head .brand,
 body.has-hero .site-head .nav > a{color:#F1E6D9}
 body.has-hero .site-head .brand .sub{color:#A8937E}
-body.has-hero .site-head .brand .mark{background:rgba(241,230,217,.12);color:#F1E6D9}
+/* the mark's own disc is dark, so over the hero it needs a light ring to
+   read as a badge rather than melt into the scene */
+body.has-hero .site-head .brand .mark{box-shadow:0 0 0 1.5px rgba(241,230,217,.55),0 2px 12px rgba(0,0,0,.35)}
 body.has-hero .site-head .nav > a:hover{background:rgba(241,230,217,.1)}
 body.has-hero .site-head .nav > a[aria-current="page"]{background:rgba(241,230,217,.14);color:#FFF6E9}
 body.has-hero .site-head .nav-toggle{
@@ -636,7 +700,7 @@ body.has-hero.is-scrolled .site-head{
 body.has-hero.is-scrolled .site-head .brand,
 body.has-hero.is-scrolled .site-head .nav > a{color:var(--espresso)}
 body.has-hero.is-scrolled .site-head .brand .sub{color:var(--driftwood)}
-body.has-hero.is-scrolled .site-head .brand .mark{background:var(--espresso);color:var(--crema)}
+body.has-hero.is-scrolled .site-head .brand .mark{box-shadow:0 0 0 1px rgba(122,79,30,.35),0 2px 10px rgba(43,31,26,.28)}
 body.has-hero.is-scrolled .site-head .nav > a:hover{background:var(--crema)}
 body.has-hero.is-scrolled .site-head .nav > a[aria-current="page"]{background:var(--crema-soft);color:var(--brass)}
 body.has-hero.is-scrolled .site-head .nav-toggle{
@@ -678,12 +742,13 @@ body.has-hero.is-scrolled .site-head .head-in > .btn-primary:hover{background:va
 
 /* The editorial display face is larger than the grotesque it replaced, so the
    hero's three blocks need height-aware trimming to stay inside one stage. */
-@media (min-width:921px) and (max-height:1000px){
+@media (min-width:921px) and (max-height:1100px){
   .orb-copy h1{font-size:clamp(1.9rem,3.4vw,2.7rem)}
   .orb-scene{height:clamp(210px,34vh,340px)}
   .orb-name{font-size:clamp(1.4rem,2.4vw,1.85rem)}
   .orb-desc{min-height:2.6em}
   .orb-cue{display:none}
+  .orb-logo{width:48px;height:48px;margin-bottom:.7rem}
 }
 @media (min-width:921px) and (max-height:800px){
   .orb-copy h1{font-size:clamp(1.7rem,2.9vw,2.2rem)}
@@ -701,4 +766,5 @@ body.has-hero.is-scrolled .site-head .head-in > .btn-primary:hover{background:va
 @media (max-width:920px) and (max-height:820px){
   .orb-scene{height:clamp(160px,24svh,220px)}
   .orb-desc{min-height:2.6em;font-size:.85rem}
+  .orb-logo{display:none}
 }

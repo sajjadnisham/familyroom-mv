@@ -74,8 +74,8 @@ Cloudflare read access to the repo and publishes `README.md`, `DEPLOY.md` and
 
 Once the café has signed off and supplied real content, in this order:
 
-1. Delete the `.demo-bar` block from all five pages.
-2. Remove `<meta name="robots" content="noindex,nofollow">` from all five pages —
+1. Delete the `.demo-bar` block from all six pages.
+2. Remove `<meta name="robots" content="noindex,nofollow">` from all six pages —
    **until you do this, Google will not index the site at all.** That is deliberate
    while it is unofficial, and it is the single easiest thing to forget.
 3. Fill in `seo/schema.jsonld` and embed it (see `README.md`).

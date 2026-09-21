@@ -27,7 +27,7 @@ jobs:
       - name: Stage site
         run: |
           mkdir -p _site
-          cp index.html menu.html our-coffee.html visit.html pitch.html _site/
+          cp index.html menu.html combos.html our-coffee.html visit.html pitch.html _site/
           cp -r assets _site/
           # Pages serves straight from the artifact, so Jekyll must not reprocess it.
           touch _site/.nojekyll

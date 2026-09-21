@@ -14,6 +14,7 @@ Their own promotional artwork and product shots. Safe to use with the café's si
 
 | Image | Used for | Source |
 | --- | --- | --- |
+| `logo-source.webp`, `logo*.webp`, `favicon*` | Header, footer, hero mark, favicon set | The client's own circular sign artwork, supplied directly — not a placeholder, and the only asset here with no rights question at all. `tools/make-logo.py` regenerates every derived size from it. |
 | `beans-*` | Homepage hero, Our Coffee, beans menu item | Family Room Coffee retail packaging |
 | `beef-burger-*` | Homepage card, menu | Product shot |
 | `lamb-chops-*` | Homepage card, menu | Seaside Grill / Family Room story, 22 Dec 2020 |
@@ -70,8 +71,10 @@ the two supplier images. That is the strongest argument for the shoot below: the
 thing anyone sees.
 
 The orbit has no espresso, americano, mocha or iced coffee because no photograph of those was
-supplied. Each needs one square photograph of the drink, ideally on the café's own cups under the
-same light as the rest; drop it into `tools/make-drinks.py` with a crop box and it joins the orbit.
+supplied. Each needs one photograph of the drink with the cup fully in frame (any aspect ratio —
+`tools/make-drinks.py` cuts the cup out and trims to its own silhouette, not a fixed crop),
+ideally on the café's own cups under the same light as the rest; drop it in with a crop box and it
+joins the orbit.
 
 ## Replacing them
 

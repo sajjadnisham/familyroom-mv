@@ -1,6 +1,6 @@
 # Family Room Coffee — website concept demo
 
-A four-page demo website for **Family Room Coffee**, a beachfront specialty-coffee café in
+A six-page demo website for **Family Room Coffee**, a beachfront specialty-coffee café in
 Hulhumalé, Maldives. Built from the *Family Room Coffee website opportunity audit*, which
 concluded: **build the demo prototype, not the production site yet.** This repository is that
 prototype.
@@ -14,10 +14,11 @@ prototype.
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | Homepage — hero, live "today" strip, counter highlights, reasons to return, gallery, ratings, visit block, final CTA |
+| `index.html` | Homepage — hero, live "today" strip, a one-row taste of the menu, reasons to return, gallery, ratings, visit block, final CTA |
 | `menu.html` | Sample menu with sticky category tabs; doubles as the in-store QR menu |
+| `combos.html` | Six coffee-and-food pairings suggested from the real menu, at an illustrative combo price |
 | `our-coffee.html` | The Coffee Lab roaster story, brew methods, the people, the living-room idea |
-| `visit.html` | Hours (incl. the Friday prayer break), map, contact, and the FAQ that answers the review complaints |
+| `visit.html` | Hours (incl. the Friday prayer break), an embedded map, contact, and the FAQ that answers the review complaints |
 | `pitch.html` | Not part of the café's site — the sales screen comparing today's Google result with one that has a website |
 
 Hosting: `.github/workflows/pages.yml` publishes to **GitHub Pages** — needs Settings → Pages →
@@ -37,25 +38,34 @@ python3 -m http.server 8000   # then open http://localhost:8000
 Open `index.html` directly in a browser if you prefer; only the Google Maps embed and the
 Google Fonts stylesheet need a network connection.
 
+**Regenerating images needs Python packages the site itself does not.** `tools/make-drinks.py`
+segments each drink with `rembg` (`pip install rembg onnxruntime scipy pillow numpy`); the u2net
+weights (176 MB) download once on first run and cache in `~/.rembg`. `tools/make-photos.py`,
+`tools/make-logo.py` and `tools/make-art.py` need only Pillow and numpy. None of this touches the
+deployed site, which is static files with zero dependencies.
+
 ## How it is built
 
 ```
-index.html  menu.html  our-coffee.html  visit.html  pitch.html
+index.html  menu.html  combos.html  our-coffee.html  visit.html  pitch.html
 assets/css/site.css     one stylesheet, design tokens on :root
 assets/js/hero.js       the scroll-driven orbit: four beats, depth and steam
 assets/js/site.js       open-now logic, nav toggle, menu tab tracking
-assets/drinks/*.webp    5 drink stills for the hero orbit
-tools/make-drinks.py    crops, grades and regenerates them
+assets/drinks/*.webp    5 cut-out drink stills for the hero orbit
+tools/make-drinks.py    segments, grades and regenerates them
 assets/photos/*.jpg     30 renditions of the 15 client-supplied photographs
 tools/make-photos.py    crops and regenerates them from the originals
 tools/make-hero-frames.py  superseded brew-sequence hero, kept to regenerate
+assets/img/logo*.webp   the client's own sign artwork, trimmed
+assets/img/favicon*.png, favicon.ico, apple-touch-icon.png  the sign's emblem, baked down
+tools/make-logo.py      regenerates the logo and favicon set from the source art
 assets/img/*.svg        20 vector illustrations, kept as a rights fallback
 tools/make-art.py       regenerates the illustration set
 IMAGE-CREDITS.md        per-image provenance and clearance status
 seo/schema.jsonld       CafeOrCoffeeShop schema, not yet embedded (see below)
 _headers                Cloudflare Pages caching and security headers
 DEPLOY.md               Cloudflare Pages + familyroom.mv runbook
-.github/workflows/      deploy to Cloudflare Pages on push to main
+.github/workflows/      deploy to GitHub Pages and to Cloudflare Pages on push to main
 ```
 
 **Design tokens** are a restrained coffee palette — Espresso `#2B1F1A`, Sand `#FAF7F2`,
@@ -63,8 +73,17 @@ Crema `#E8D9C6`, Brass `#7A4F1E` (buttons and links, 7.08:1 on white), Terracott
 open-now dot and tags only), Driftwood `#6E625A`. The teal accent an earlier pass used was the
 only colour on the page that had nothing to do with coffee, and it has been replaced. Type is
 Cormorant Garamond for headings — an editorial serif, set large — and Inter for body and prices,
-with tabular numerals on prices. **The palette is a proposal, not the café's brand** — sample the
-real colours from their logo and swap the `--espresso` / primary slot first.
+with tabular numerals on prices. **The palette is still a proposal, not sampled from the café's
+brand** — the header mark and favicon now use the client's real sign artwork
+(`assets/img/logo-source.webp`), but the page colours were not drawn from it; sample the real
+colours from the sign's brass ring and swap the `--espresso` / primary slot first.
+
+**The logo is the client's own**, not a placeholder initial. `tools/make-logo.py` trims the full
+disc for the header, footer and hero mark, and separately crops just the emblem — house, lamp,
+cup, burger, palm, sunset — clear of the sign's brass ring and its three lines of small type, which
+does not survive down to a 16px favicon. That emblem, composited onto a solid espresso backing,
+is the favicon and apple-touch-icon set. The header mark is sized up from the 36px text badge it
+replaced and carries a warm ring so it reads on both the pale header and the hero's dark field.
 
 **The open-now indicator** (`assets/js/site.js`) evaluates hours in Maldives time (UTC+5) so it is
 correct for a visitor in any time zone. Hours are stored as minutes from midnight, with an end
@@ -83,10 +102,12 @@ otherwise push the track 84px down and make the stage overhang the fold. The orb
 radius is clamped against the widest satellite, so the page never scrolls sideways. Verified at
 eleven viewports, at rest and while stuck.
 
-**The hero is a scroll-driven orbit of the drinks the café pours.** Five drinks travel one
-elliptical path; scroll position sets the orbit's rotation, so the visitor turns it rather than
-watching it spin. Whichever drink reaches the front is drawn into the middle, scaled up, sharpened
-and named.
+**The hero is a scroll-driven orbit of the drinks the café pours, cut out rather than framed.**
+Five drinks travel one elliptical path; scroll position sets the orbit's rotation, so the visitor
+turns it rather than watching it spin. Whichever drink reaches the front is drawn into the middle,
+scaled up, sharpened and named. Each still is the drink's own silhouette -- no disc, no circular
+mask, no vignette -- so the cup reads as floating in the hero's dark field rather than a photo in
+a window.
 
 **The scroll is choreographed in four beats, not linear**, because a constant rotation reads as a
 machine rather than an experience:
@@ -112,22 +133,28 @@ released as the next is drawn in, so it reads as an orbital pass rather than a s
 
 `assets/js/hero.js` writes only transforms, opacity and filter per frame — never layout. Scroll
 sets a target and a frame-rate-independent lerp walks the rendered value toward it, so a 120 Hz
-and a 60 Hz screen travel at the same speed. Steam is drawn on its own canvas over the featured
-cup and keeps drifting while the page is still; it is the one movement not driven by scroll, and
-it is weighted per drink, so the bag of beans does not steam. The rAF loop runs only while the
-hero intersects the viewport.
+and a 60 Hz screen travel at the same speed. **Every motion in the scene, including the steam,
+flows only while the visitor is scrolling.** The steam's own phase only advances while the orbit
+is still easing toward its target; the instant it settles, steam and orbit both hold still, and
+the rAF loop stops rather than idling on a wall clock -- it wakes again on the next scroll event.
+Steam is weighted per drink, so the bag of beans does not steam. The rAF loop otherwise runs only
+while the hero intersects the viewport.
 
 **Only drinks that were actually photographed appear.** There is no espresso, americano, mocha or
 iced coffee in the orbit, because no photograph of those was supplied — and darkening the
 cappuccino to stand in for them would put fabricated menu items in front of the café. Two real
 photographs would add each one; see `tools/make-drinks.py`.
 
-The stills are 5 × ~21 KB. `tools/make-drinks.py` bakes a per-drink vignette so every photograph
-dissolves into the hero's darkness at the same rate, whatever its own background — the bean bags
-were shot against a pale wall and need the most. It also applies one restrained grade across the
-set: the photographs are of bright ceramic — teal, cobalt, red — on orange wood, and at full
-saturation five of them orbiting together read as a colour wheel rather than a coffee bar, so the
-saturation comes down to 0.66 and what is left is tilted warm.
+The stills are 5 × ~52 KB. `tools/make-drinks.py` segments each photograph locally with
+`rembg`/u2net -- no hosted background-removal API, no account, run entirely on this machine's CPU
+-- keeps only the largest connected blob (so a stray fleck of reflection or text does not survive
+as its own island), feathers the edge by a couple of pixels, and trims the result to the cutout's
+own bounding box, so the exported image's aspect ratio is the cup's, not the square the source
+photo happened to be cropped to. It also applies one restrained grade across the set, on the RGB
+channels only: the photographs are of bright ceramic — teal, cobalt, red — on orange wood, and at
+full saturation five of them floating together read as a colour wheel rather than a coffee bar, so
+the saturation comes down to 0.66 and what is left is tilted warm. A CSS `drop-shadow` (not baked
+into the image) grounds each cup in the scene.
 
 **The hero does not end at a section boundary.** A `.bridge` section carries the scene's dark
 field down through a gradient into the page's sand, and holds the "Our coffee" heading inside the
@@ -150,8 +177,27 @@ photos from Google Maps, and two are a tea supplier's marketing images — **rea
 photographer's permission.
 
 **The illustration set is kept as a fallback.** `tools/make-art.py` generates 20 vector
-illustrations in `assets/img/`, now unreferenced except the favicon. If any photo's rights don't
-clear, the matching illustration drops straight in. Delete both once every photo is cleared.
+illustrations in `assets/img/`, now fully unreferenced (the favicon moved to the real logo). If
+any photo's rights don't clear, the matching illustration drops straight in. Delete both once
+every photo is cleared.
+
+**The homepage's menu preview is a taste, not a second copy of the menu.** Six round thumbnails in
+one row — image, name, price, nothing else — link out to `menu.html` for the description and the
+rest of the list. It replaced a two-row, six-card grid with full photos and copy, at roughly 40%
+of that grid's height; the level of counter detail belongs on the menu page, not repeated on the
+homepage.
+
+**The map is a real embed, not a link-out card.** `#visit` and `visit.html` both carry a
+`<iframe>` onto `?q=...&output=embed` — no API key needed, since it searches the café by name
+rather than pinning an address. A link-out card was the right call inside the sandboxed Claude
+artifact preview, which blocks framed content; on the actual deployed site there is no such
+restriction, and a link-out under-delivers what a map section is for. The "Open in Google Maps ↗"
+link stays underneath for turning the search into directions.
+
+**Combos are a suggestion, not a menu item.** `combos.html` pairs six real drinks with six real
+dishes already on the menu, at an illustrative combined price a little under ordering both apart.
+The page says plainly that the pairing and the discount are this page's proposal, not something
+the café currently offers.
 
 **Prices are illustrative, and labelled as such.** No real price was available. They are anchored
 to the single figure in the audit — a Nov 2019 review paid MVR 163 for pancakes, avocado toast and
@@ -164,10 +210,12 @@ possibly discontinued.
 
 ## Before this becomes a live site
 
-The audit lists four blockers, all of which need the café's input:
+The audit lists four blockers, all of which need the café's input. The logo is now the real one
+(the client supplied it); brand *colours* are still a proposal, not sampled from it:
 
-1. **Logo and brand colours** — the demo's palette is a proposal.
-2. **Current menu and prices** — every price on the site is an illustrative sample.
+1. **Brand colours** — the demo's palette is a proposal; the logo itself is now the client's own.
+2. **Current menu and prices** — every price on the site is an illustrative sample, combos
+   included.
 3. **Hours, WhatsApp number and the exact map pin** — hours come from Tripadvisor only, and two
    different addresses circulate (Lot 20018 Beach Road / Phase 2 vs 10033 Nirolhu Magu).
 4. **Photo rights and sign-off on claims** — the Coffee Lab wording, halal, vegan and award
@@ -176,7 +224,7 @@ The audit lists four blockers, all of which need the café's input:
 Then, in the code:
 
 - Remove the `.demo-bar` banner and the `<meta name="robots" content="noindex,nofollow">` on all
-  five pages.
+  six pages.
 - Fill in `seo/schema.jsonld` (every `CONFIRM` value) and embed it as
   `<script type="application/ld+json">` on each page.
 - Clear or replace every photo marked 🟡 or 🔴 in [`IMAGE-CREDITS.md`](IMAGE-CREDITS.md). One
@@ -185,10 +233,10 @@ Then, in the code:
 - Verify the three bean origins on `our-coffee.html` — the names, producers, varietals and
   altitudes were transcribed from a photograph of the bags.
 - Swap the two placeholder quote cards on the homepage for owner-approved quotes, credited.
-- Swap the `.map-card` link-out block on `index.html` and `visit.html` for a real interactive
-  embed once the pin is confirmed. It deliberately links out rather than framing Google Maps:
-  the address is one of the unconfirmed items above, and sandboxed viewers block third-party
-  frames.
+- Swap the `?q=...` search embed on `index.html` and `visit.html` for a pinned one
+  (`?q=<lat>,<lng>` or a Place ID) once the café confirms which of the two addresses is real —
+  right now it searches the café by name, which is why it does not need either address to work
+  today.
 - Add the WhatsApp click-to-chat link where the Visit page currently says "not published".
 
 Two off-site wins worth doing at the same time: repoint the Google Business Profile's website

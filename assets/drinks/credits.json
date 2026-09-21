@@ -1,22 +1,42 @@
 {
   "cappuccino": {
     "credit": "Guest photo, Google Maps (credited 'Raya Ss')",
+    "size": [
+      1056,
+      933
+    ],
     "source": "2e2cca05-image.jpg"
   },
   "flat-white": {
     "credit": "Guest photo by @nishaaarl, reshared by the cafe",
+    "size": [
+      1062,
+      739
+    ],
     "source": "1302bbc0-image.jpg"
   },
   "fruits-eden": {
     "credit": "Tea Drop supplier marketing image",
+    "size": [
+      1100,
+      1092
+    ],
     "source": "93570108-image.jpg"
   },
   "jasmine": {
     "credit": "Tea Drop supplier marketing image",
+    "size": [
+      1017,
+      1043
+    ],
     "source": "1f4ea03f-image.jpg"
   },
   "single-origin": {
     "credit": "Family Room Coffee retail packaging",
+    "size": [
+      461,
+      697
+    ],
     "source": "abc596dc-image.jpg"
   }
 }

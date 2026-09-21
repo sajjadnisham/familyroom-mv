@@ -30,16 +30,19 @@
 (function () {
   'use strict';
 
+  // w/h are the cutout's own pixel size (tools/make-drinks.py trims to the
+  // subject's bounding box, so every drink has a different one) -- passed
+  // to the <img> so the browser has a correct aspect ratio before decode.
   var DRINKS = [
-    { slug: 'cappuccino',    name: 'Cappuccino',
+    { slug: 'cappuccino',    name: 'Cappuccino',    w: 1056, h: 933,
       desc: 'Rich espresso under a deep cap of velvety foam.',            steam: 1.00 },
-    { slug: 'jasmine',       name: 'Oriental Jasmine',
+    { slug: 'jasmine',       name: 'Oriental Jasmine', w: 1017, h: 1043,
       desc: 'Loose-leaf jasmine green tea, light and floral.',            steam: 0.80 },
-    { slug: 'flat-white',    name: 'Flat White',
+    { slug: 'flat-white',    name: 'Flat White',    w: 1062, h: 739,
       desc: 'House roast under a thin, glossy layer of steamed milk.',    steam: 0.95 },
-    { slug: 'fruits-eden',   name: 'Fruits of Eden',
+    { slug: 'fruits-eden',   name: 'Fruits of Eden', w: 1100, h: 1092,
       desc: 'Hibiscus and dried fruit, steeped deep red.',                steam: 0.75 },
-    { slug: 'single-origin', name: 'Single Origin',
+    { slug: 'single-origin', name: 'Single Origin', w: 461, h: 697,
       desc: 'Kagunyu, Kenya — berries, citrus and plum, roasted locally.', steam: 0.00 }
   ];
 
@@ -93,7 +96,7 @@
       el.setAttribute('data-slug', d.slug);
       var im = document.createElement('img');
       im.src = 'assets/drinks/' + d.slug + '.webp';
-      im.width = 760; im.height = 760;
+      im.width = d.w; im.height = d.h;
       im.alt = d.name + ' at Family Room Coffee';
       im.loading = i === 0 ? 'eager' : 'lazy';
       if (i === 0) im.setAttribute('fetchpriority', 'high');
@@ -223,8 +226,11 @@
       return bestW;
     }
 
-    /* Steam over the featured cup. Continues while the page is still: it is the
-       one movement not driven by scroll. */
+    /* Steam over the featured cup. Its phase advances only while the orbit
+       itself is moving -- while `cur` is still easing toward `tgt` -- so
+       every motion in the scene, steam included, flows only while the
+       visitor is scrolling and holds still the instant they stop, rather
+       than drifting on its own on a wall clock. */
     var puffs = [];
     for (var i = 0; i < 14; i++) {
       puffs.push({ t: Math.random(), sp: 0.15 + Math.random() * 0.18,
@@ -269,17 +275,22 @@
       return;
     }
 
-    var cur = 0, tgt = 0, visible = true, running = false, t0 = performance.now();
+    var cur = 0, tgt = 0, phase = 0, visible = true, running = false, t0 = performance.now();
 
     function frame(now) {
       var dt = Math.min((now - t0) / 1000, 0.05); t0 = now;
       // Frame-rate independent approach, so a 120Hz screen and a 60Hz screen
       // travel at the same speed and the orbit never snaps.
       cur += (tgt - cur) * (1 - Math.pow(0.0018, dt));
+      var moving = Math.abs(tgt - cur) > 0.0004;
+      if (moving) phase += dt;
       var w = layout(cur);
       var strength = (DRINKS[featured] ? DRINKS[featured].steam : 0) * clamp(w * 1.6, 0, 1);
-      drawSteam(now / 1000, strength);
-      if (visible) requestAnimationFrame(frame);
+      drawSteam(phase, strength);
+      // Stops the instant the orbit settles -- one last frame paints the
+      // resting state, then the loop steps aside until the next scroll
+      // wakes it, rather than spinning idle on a wall clock.
+      if (visible && moving) requestAnimationFrame(frame);
       else running = false;
     }
     function start() { if (!running && visible) { running = true; t0 = performance.now(); requestAnimationFrame(frame); } }

@@ -6,7 +6,10 @@
 <title>Family Room Coffee | Beachfront Specialty Café, Hulhumalé</title>
 <meta name="description" content="Specialty coffee, all-day breakfast, burgers and cakes on Hulhumalé's beach road. See the menu, opening hours and directions.">
 <meta name="robots" content="noindex,nofollow">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/img/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="assets/img/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap">
@@ -21,12 +24,13 @@
 <header class="site-head">
   <div class="wrap head-in">
     <a class="brand" href="index.html">
-      <span class="mark" aria-hidden="true">FR</span>
+      <img class="mark" src="assets/img/logo.webp" width="256" height="256" alt="Family Room Coffee">
       <span class="name">Family Room<span class="sub">Coffee · Hulhumalé</span></span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="nav" id="site-nav" aria-label="Main">
       <a href="menu.html">Menu</a>
+      <a href="combos.html">Combos</a>
       <a href="our-coffee.html">Our Coffee</a>
       <a href="visit.html">Visit</a>
       <a class="btn btn-primary btn-sm" href="menu.html">View Menu</a>
@@ -44,6 +48,7 @@
       <span class="orb-glow" aria-hidden="true"></span>
 
       <div class="orb-copy">
+        <img class="orb-logo" src="assets/img/logo.webp" width="256" height="256" alt="Family Room Coffee">
         <p class="orb-brand">Family Room Coffee · Hulhumalé</p>
         <h1>Specialty coffee,<br><em>thoughtfully made.</em></h1>
         <div class="orb-cta">
@@ -94,68 +99,28 @@
   </div>
 </div>
 
-<!-- 4 · From the counter -->
-<section>
+<!-- 4 · From the counter -- a one-row taste of the menu, not the whole menu
+     again: the full detail (description, every dish) lives on menu.html, one
+     click away, so this stays a teaser rather than a second copy of it. -->
+<section class="taster">
   <div class="wrap">
     <div class="section-head">
       <div>
         <p class="eyebrow">From the counter</p>
         <h2>What people order</h2>
-        <p class="lede">The prices shown are illustrative — the café sets the real ones.</p>
       </div>
       <a class="btn btn-ghost" href="menu.html">Full menu →</a>
     </div>
 
-    <div class="grid grid-3">
-      <article class="card">
-        <figure><img src="assets/photos/latte-blue-card.jpg" alt="Flat white at Family Room Coffee" width="1000" height="750" loading="lazy"></figure>
-        <div class="card-body">
-          <h3>Flat white</h3>
-          <p>Coffee Lab’s house roast under a thin, glossy layer of steamed milk.</p>
-          <p class="price">MVR 65 <span class="tbc">sample price</span></p>
-        </div>
-      </article>
-      <article class="card">
-        <figure><img src="assets/photos/avocado-toast-card.jpg" alt="Avocado toast and eggs at Family Room Coffee" width="1000" height="750" loading="lazy"></figure>
-        <div class="card-body">
-          <h3>Avocado toast &amp; eggs</h3>
-          <p>Sliced avocado over scrambled eggs on seeded toast, with a side salad.</p>
-          <p class="price">MVR 115 <span class="tbc">sample price</span></p>
-        </div>
-      </article>
-      <article class="card">
-        <figure><img src="assets/photos/beef-burger-card.jpg" alt="Beef burger at Family Room Coffee" width="1000" height="750" loading="lazy"></figure>
-        <div class="card-body">
-          <h3>Beef burger</h3>
-          <p>The most-mentioned plate on the menu, nine years running.</p>
-          <p class="price">MVR 165 <span class="tbc">sample price</span></p>
-        </div>
-      </article>
-      <article class="card">
-        <figure><img src="assets/photos/chicken-burger-card.jpg" alt="Grilled chicken burger at Family Room Coffee" width="1000" height="750" loading="lazy"></figure>
-        <div class="card-body">
-          <h3>Grilled chicken burger</h3>
-          <p>Grilled chicken, melted cheddar and fries, from the Seaside Grill kitchen.</p>
-          <p class="price">MVR 155 <span class="tbc">sample price</span></p>
-        </div>
-      </article>
-      <article class="card">
-        <figure><img src="assets/photos/lamb-chops-card.jpg" alt="Australian lamb chops at Family Room Coffee" width="1000" height="750" loading="lazy"></figure>
-        <div class="card-body">
-          <h3>Australian lamb chops</h3>
-          <p>Chargrilled, with fries, salad and two dipping sauces.</p>
-          <p class="price">MVR 245 <span class="tbc">sample price</span></p>
-        </div>
-      </article>
-      <article class="card">
-        <figure><img src="assets/photos/latte-donut-card.jpg" alt="Coffee and a donut at Family Room Coffee" width="1000" height="750" loading="lazy"></figure>
-        <div class="card-body">
-          <h3>Coffee &amp; a donut</h3>
-          <p>The afternoon order: a cappuccino and a cinnamon-sugar donut.</p>
-          <p class="price">MVR 90 <span class="tbc">sample price</span></p>
-        </div>
-      </article>
-    </div>
+    <ul class="taster-row">
+      <li><img src="assets/photos/latte-blue-thumb.jpg" alt="Flat white at Family Room Coffee" width="320" height="320" loading="lazy"><b>Flat white</b><span>MVR 65</span></li>
+      <li><img src="assets/photos/avocado-toast-thumb.jpg" alt="Avocado toast and eggs at Family Room Coffee" width="320" height="320" loading="lazy"><b>Avocado toast</b><span>MVR 115</span></li>
+      <li><img src="assets/photos/beef-burger-thumb.jpg" alt="Beef burger at Family Room Coffee" width="320" height="320" loading="lazy"><b>Beef burger</b><span>MVR 165</span></li>
+      <li><img src="assets/photos/chicken-burger-thumb.jpg" alt="Grilled chicken burger at Family Room Coffee" width="320" height="320" loading="lazy"><b>Chicken burger</b><span>MVR 155</span></li>
+      <li><img src="assets/photos/lamb-chops-thumb.jpg" alt="Australian lamb chops at Family Room Coffee" width="320" height="320" loading="lazy"><b>Lamb chops</b><span>MVR 245</span></li>
+      <li><img src="assets/photos/latte-donut-thumb.jpg" alt="Coffee and a donut at Family Room Coffee" width="320" height="320" loading="lazy"><b>Coffee &amp; a donut</b><span>MVR 90</span></li>
+    </ul>
+    <p class="lede" style="margin-top:14px;font-size:.86rem">Prices shown are illustrative — the café sets the real ones.</p>
   </div>
 </section>
 
@@ -272,16 +237,16 @@
         </div>
       </div>
       <div>
-        <a class="map-card" href="https://www.google.com/maps/search/?api=1&amp;query=Family+Room+Coffee+Hulhumale" target="_blank" rel="noopener">
-          <span class="map-pin" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-          </span>
-          <b>Beach Road, Hulhumalé</b>
-          <span>Next to SeaSide Grill, near Fuana Inn</span>
-          <span class="map-go">Open in Google Maps ↗</span>
+        <div class="map-embed">
+          <iframe src="https://www.google.com/maps?q=Family+Room+Coffee,+Hulhumale,+Maldives&amp;output=embed"
+            title="Map showing Family Room Coffee, Hulhumalé" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <a class="map-open" href="https://www.google.com/maps/search/?api=1&amp;query=Family+Room+Coffee+Hulhumale" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          Open in Google Maps ↗
         </a>
-        <p class="small" style="margin-top:10px"><span class="tag tag-tbc">Map embed pending</span> An interactive map goes here once the café confirms which of the two addresses on record is the right pin.</p>
-        <p class="note" style="margin-top:14px"><b>Two addresses are on record.</b> Tripadvisor says Lot 20018, Beach Road, Phase 2; Google lists 10033 Nirolhu Magu. The live site should carry one pin, confirmed by the café.</p>
+        <p class="note" style="margin-top:14px"><b>Two addresses are on record.</b> Tripadvisor says Lot 20018, Beach Road, Phase 2; Google lists 10033 Nirolhu Magu. The map above searches the café by name rather than pin one; the live site should carry a single confirmed pin.</p>
       </div>
     </div>
   </div>
@@ -305,13 +270,14 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <span class="brand"><span class="mark" aria-hidden="true">FR</span><span class="name">Family Room<span class="sub">Coffee · Hulhumalé</span></span></span>
+        <span class="brand"><img class="mark" src="assets/img/logo.webp" width="256" height="256" alt="Family Room Coffee"><span class="name">Family Room<span class="sub">Coffee · Hulhumalé</span></span></span>
         <p style="margin:0">A Coffee Lab Maldives café. <span class="tag tag-tbc">wording to confirm</span></p>
       </div>
       <div>
         <h4>Pages</h4>
         <ul>
           <li><a href="menu.html">Menu</a></li>
+          <li><a href="combos.html">Combos</a></li>
           <li><a href="our-coffee.html">Our Coffee</a></li>
           <li><a href="visit.html">Visit &amp; FAQ</a></li>
           <li><a href="pitch.html">Pitch screen (demo)</a></li>
